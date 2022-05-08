@@ -6,6 +6,27 @@ import java.util.ArrayList;
 
 public class DataBase implements IDataBase {
 
+    BinarySearchTree<User> users = new BinarySearchTree<>();
+
+    /**
+     * A method that adds a new user
+     * @param newUser wanted to add or not
+     * @return true if added process is success
+     *          else returns false
+     */
+    public boolean addUser(User newUser){
+        return users.add(newUser);
+    }
+
+    public User findUser(String identity){
+        return users.find(new User(identity));
+    }
+
+    public boolean remove(String identity){
+        return users.remove(new User(identity));
+    }
+
+
     /**
      * Shows all the penalties with details.
      *

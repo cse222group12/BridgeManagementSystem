@@ -63,4 +63,5 @@ public interface IUser {
      * @return old balance of account
      */
     int addToBalance(int money);
+
 }

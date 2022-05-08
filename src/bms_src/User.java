@@ -3,8 +3,56 @@ package bms_src;
 import bms_interface.IUser;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.Objects;
 
-public class User implements IUser {
+public class User implements IUser, Comparable<User> {
+
+    //data fields
+
+    //user`s user name to login
+    private String user_name;
+    //user`s password to login
+    private String password;
+    //name of the user
+    private String name;
+    //user`s identity number
+    private String identity_number;
+    //user's balance
+    private double balance;
+    //user's penalty
+    private double penalty;
+    //user's vehicle stored in the LinkedList
+    private LinkedList<Vehicle> vehicles;
+
+
+    public User(){
+        user_name = "";
+        password = "";
+        name = "";
+        identity_number = "";
+        balance = 0;
+        penalty = 0;
+        vehicles = new LinkedList<>();
+    }
+
+    public User(String identity){
+        this();
+        this.identity_number = identity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return Objects.equals(identity_number, user.identity_number);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(identity_number);
+    }
 
     /**
      * Get the username
@@ -13,7 +61,7 @@ public class User implements IUser {
      */
     @Override
     public String getUserName() {
-        return null;
+        return user_name;
     }
 
     /**
@@ -23,7 +71,7 @@ public class User implements IUser {
      */
     @Override
     public void setUserName(String userName) {
-
+        user_name = userName;
     }
 
     /**
@@ -34,7 +82,7 @@ public class User implements IUser {
      */
     @Override
     public void addVehicle(Vehicle vehicle) throws Exception {
-
+        vehicles.add(vehicle);
     }
 
     /**
@@ -46,7 +94,8 @@ public class User implements IUser {
      */
     @Override
     public Vehicle removeVehicle(Vehicle vehicle) throws Exception {
-        return null;
+        vehicles.remove(vehicle);
+        return vehicle;
     }
 
     /**
@@ -93,5 +142,16 @@ public class User implements IUser {
     @Override
     public int addToBalance(int money) {
         return 0;
+    }
+
+    @Override
+    /**
+     * A method that return compare identies and
+     * @return 1 if this identity is bigger
+     *          0 if identity is equal
+     *          else -1
+     */
+    public int compareTo(User o) {
+        return identity_number.compareTo(o.identity_number);
     }
 }
