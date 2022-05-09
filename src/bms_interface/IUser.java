@@ -3,21 +3,19 @@ package bms_interface;
 import bms_src.Penalty;
 import bms_src.Vehicle;
 
-import java.util.ArrayList;
-
 public interface IUser {
 
     /**
      * Get the username
      * @return username of user
      */
-    String getUserName();//UserName must be unique
+    String getName();//UserName must be unique
 
     /**
      * set the username it should be check is it unique or not
      * @param userName
      */
-    void setUserName(String userName);
+    void setName(String userName);
 
     /**
      * add vehicle to account
@@ -63,5 +61,4 @@ public interface IUser {
      * @return old balance of account
      */
     int addToBalance(int money);
-
 }

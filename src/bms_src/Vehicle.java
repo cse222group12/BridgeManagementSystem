@@ -4,24 +4,28 @@ import bms_interface.IVehicle;
 
 public class Vehicle implements IVehicle {
 
+    private Plate plate;
+    private User owner;
+    private Type type;
+
     /**
-     * Gets the vehicle type of vehicle
+     * Gets the vehicle type of vehicle.
      *
-     * @return
+     * @return  <code>Type</code> of this vehicle.
      */
     @Override
-    public String getVehicleType() {
-        return null;
+    public Type getVehicleType() {
+        return type;
     }
 
     /**
-     * Gets the plate of vehicle
+     * Gets the plate of vehicle.
      *
-     * @return
+     * @return <code>Plate</code> of this vehicle.
      */
     @Override
-    public String getPlate() {
-        return null;
+    public Plate getPlate() {
+        return plate;
     }
 
     /**
@@ -30,38 +34,37 @@ public class Vehicle implements IVehicle {
      * @return toll(passing price)
      */
     @Override
-    public int getToll() {
-        return 0;
+    public float getToll() {
+        return type.toll;
     }
 
     /**
-     * Gets the owner of the user
+     * Gets the owner of this vehicle.
      *
-     * @return owner
+     * @return Owner of this vehicle.
      */
     @Override
     public User getOwner() {
-        return null;
+        return owner;
     }
 
     /**
-     * Sets the vehicle type of vehicle
-     *
-     * @param vehicleType
+     * Sets the vehicle type.
+     * @param type  New <code>Type</code> of this vehicle.
      */
     @Override
-    public void setVehicleType(String vehicleType) {
-
+    public void setVehicleType(Type type) {
+        this.type = type;
     }
 
     /**
-     * Sets the plate of the vehicle
+     * Sets the plate of the vehicle.
      *
-     * @param plate
+     * @param plate New <code>Plate</code> of this vehicle.
      */
     @Override
-    public void setPlate(String plate) {
-
+    public void setPlate(Plate plate) {
+        this.plate = plate;
     }
 
     /**
@@ -70,18 +73,23 @@ public class Vehicle implements IVehicle {
      * @param toll
      */
     @Override
-    public void setToll(int toll) {
-
+    @Deprecated
+    public void setToll(float toll) {
+        // TODO:
+        // Tolls are special to different types of vehicles.
+        // This function shouldn't exist. Delete it.
     }
 
     /**
-     * Sets the owner of the user.
+     * Sets the owner of this vehicle.
      *
-     * @param user owner
-     * @throws Exception if the user not found
+     * @param owner New owner of this vehicle.
+     * @throws Exception If user is not found.
      */
     @Override
-    public void setOwner(User user) throws Exception {
-
+    public void setOwner(User owner) throws Exception {
+        // TODO:
+        // Think about the "user not found" exception thing.
+        this.owner = owner;
     }
 }
