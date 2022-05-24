@@ -9,7 +9,8 @@ import java.util.Date;
 public interface ITollClerk {
 
     /**
-     * Checks if the passerby passenger from bridge is in the blacklist or there is not enough money on user's account so user can't check in.
+     * Checks if the passerby passenger from bridge is in the blacklist or
+     * there is not enough money on user's account so user can't check in.
      * @param user User reference
      * @return true or false
      */

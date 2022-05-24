@@ -1,14 +1,24 @@
 package testers;
 import bms_interface.*;
 import bms_src.*;
-
+/**
+ * For testing written by OmerF
+ * Can delete or improve
+ * Note: Bir arkadas pull etmeden push etmis. user, db
+ * vs classlarda test etmek icin yazilan kodlari gocurmus
+ * ben de kullanan hata almasin <compile ederken> diye tum
+ * classi yorum satirina aldim gerekli classlar yazildiginda
+ * tekrar gelistirilebilir.
+ */
+/*
 import java.util.ArrayList;
 
 public class UserTheroticalTest {
     public static void main(String[] args) {
 
+
         //DataBase for users
-        DataBase db10 = fillDataBase(10);
+//        DataBase db10 = fillDataBase(10);
         DataBase db100 = fillDataBase(100);
         DataBase db1000 = fillDataBase(1000);
         DataBase db10000 = fillDataBase(10000);
@@ -99,3 +109,5 @@ public class UserTheroticalTest {
     }
 
 }
+
+ */
