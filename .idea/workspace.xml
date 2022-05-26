@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="538e9847-32f2-4900-b9c6-467ce72fccf7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bms_interface/ITollClerk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bms_interface/ITollClerk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testers/UserTheroticalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/testers/UserTheroticalTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="538e9847-32f2-4900-b9c6-467ce72fccf7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +39,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/bms_src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -58,8 +54,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="UserTheroticalTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="testers.UserTheroticalTest" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="testers.Test" />
       <module name="BridgeManagementSystem" />
       <extension name="coverage">
         <pattern>
@@ -73,7 +69,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UserTheroticalTest" />
+        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -87,6 +83,7 @@
       <updated>1651178040223</updated>
       <workItem from="1651178041499" duration="10716000" />
       <workItem from="1651189551979" duration="78000" />
+      <workItem from="1653571305140" duration="116000" />
     </task>
     <servers />
   </component>
