@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 public class DataBase implements IDataBase {
 
+
+
+
+
     /**
      * Shows all the penalties with details.
      *
