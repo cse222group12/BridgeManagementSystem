@@ -6,6 +6,10 @@ import java.util.Date;
 
 public class TollClerk extends Staff implements ITollClerk {
 
+    public TollClerk(String staff_name, String id_number) {
+        super(staff_name, id_number);
+    }
+
     /**
      * Checks if the passerby passenger from bridge is in the blacklist or there is not enough money on user's account so user can't check in.
      *

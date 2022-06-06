@@ -1,33 +1,34 @@
 package bms_src;
 
 import bms_interface.IUser;
+import data_structures.SkipList;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.Iterator;
 
-public class User implements IUser {
 
-    private String name;
-    private ArrayList<Vehicle> vehicles; // Data structure type is subject to change
+public class User extends Person implements IUser {
 
-    /**
-     * Get the name of the user.
-     *
-     * @return Name of the user.
-     */
-    @Override
-    public String getName() {
-        return name;
-    }
+    //DataFields
+    //SkipList structure uses to sore user`s vehicle`s
+    //Key value is Plate which is unique for vehicles
+    private SkipList<Plate,Vehicle> vehicles; // Data structure type is subject to change
+    //User`s balance (burda 2 tane para hesabi var)
+    //biri kendisinin hesabindaki para balance digeri
+    //borclarinin tamamini gosteren debt
+    //Kullanici borcunu odemek icin ilkin kendi hesabina
+    //para yatirir sonrasinda borcunu odemek icin kendisi manuel
+    //sistemeden borcunu oder
+    double balance = 0;
 
-    /**
-     * Set name of the user.
-     *
-     * @param name New name of this user.
-     */
-    @Override
-    public void setName(String name) {
-        this.name = name;
+    double debt = 0;
+
+    //Constructors
+    public User(String user_name, String id_number){
+        super(user_name,id_number);
+//        isIDValid();  //Idinin valid olup olmamasi
+//        check edilecek Userlar hash mapte tutulduktan sonra
+        vehicles = new SkipList<>();
+        balance = 0;
     }
 
     /**
@@ -38,7 +39,18 @@ public class User implements IUser {
      */
     @Override
     public void addVehicle(Vehicle vehicle) throws Exception {
-        vehicles.add(vehicle);
+        vehicles.add(vehicle.getPlate(),vehicle);
+    }
+
+    /**
+     * A method that prints vehicles plate numbers
+     * to terminal
+     */
+    public void showAllPlates(){
+        Iterator<Plate> iterator= vehicles.iterator();
+
+        while (iterator.hasNext())
+            System.out.println(iterator.next().getPlate());
     }
 
     /**
@@ -50,8 +62,22 @@ public class User implements IUser {
      */
     @Override
     public Vehicle removeVehicle(Vehicle vehicle) throws Exception {
-        return null;
+        vehicles.remove(vehicle.getPlate());
+        return vehicle;
     }
+
+    /**
+     * remove vehicle from account by plate
+     *
+     * @param plate vehicle reference
+     * @return removed vehicle
+     * @throws Exception throws exception if the remove operation successfully or not
+     */
+    public void removeVehicle(Plate plate) throws Exception {
+        vehicles.remove(plate);
+    }
+
+
 
     /**
      * update the one of the user's vehicle
@@ -64,6 +90,7 @@ public class User implements IUser {
      */
     @Override
     public Vehicle updateVehicle(Vehicle vehicle, String plate, String vehicleType) throws Exception {
+
         return null;
     }
 
@@ -83,10 +110,10 @@ public class User implements IUser {
      *
      * @return balance
      */
-    @Override
-    public int showBalance() {
-        return 0;
+    public double showBalance() {
+        return balance;
     }
+
 
     /**
      * Money adding operation to user's balance
@@ -95,7 +122,20 @@ public class User implements IUser {
      * @return old balance of account
      */
     @Override
-    public int addToBalance(int money) {
-        return 0;
+    public double addToBalance(double money) {
+        double b_balance = balance;
+        balance+=money;
+        return b_balance;
     }
+
+    @Override
+    public boolean isThereAnyDebt() {
+        return isZero(balance, 0.001);
+    }
+
+    private boolean isZero(double value, double threshold){
+        return value >= -threshold && value <= threshold;
+    }
+
+
 }

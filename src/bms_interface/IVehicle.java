@@ -26,12 +26,6 @@ public interface IVehicle {
     @Deprecated
     float getToll();
 
-    /**
-     * Gets the owner of this vehicle.
-     *
-     * @return Owner of this vehicle.
-     */
-    User getOwner();
 
     /**
      * Sets the vehicle type.
@@ -56,24 +50,16 @@ public interface IVehicle {
     void setToll(float toll);
 
     /**
-     * Sets the owner of this vehicle.
-     *
-     * @param owner New owner of this vehicle.
-     * @throws Exception If user is not found.
-     */
-    void setOwner(User owner) throws Exception;
-
-    /**
      * Types of vehicles.
      */
     enum Type {
         // TODO:
         // Set tolls to logical values.
         Automobile(0),
-        Minibus(0),
-        Bus(0),
-        Truck(0),
-        Motorcycle(0);
+        Minibus(1),
+        Bus(2),
+        Truck(3),
+        Motorcycle(4);
 
         public final float toll;
 

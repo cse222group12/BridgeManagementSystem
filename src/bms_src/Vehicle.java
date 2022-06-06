@@ -1,13 +1,21 @@
 package bms_src;
 
 import bms_interface.IVehicle;
+import data_structures.KWPriorityQueue;
 
 public class Vehicle implements IVehicle {
 
     private Plate plate;
-    private User owner;
+    private String ownerId;
     private Type type;
+    private KWPriorityQueue<Penalty> penalties;
 
+    public Vehicle(Plate plate, String ownerId, Type type){
+        this.plate = plate;
+        this.ownerId = ownerId;
+        this.type = type;
+        penalties = new KWPriorityQueue<>();
+    }
     /**
      * Gets the vehicle type of vehicle.
      *
@@ -43,9 +51,8 @@ public class Vehicle implements IVehicle {
      *
      * @return Owner of this vehicle.
      */
-    @Override
-    public User getOwner() {
-        return owner;
+    public String getOwnerId() {
+        return ownerId;
     }
 
     /**
@@ -80,16 +87,48 @@ public class Vehicle implements IVehicle {
         // This function shouldn't exist. Delete it.
     }
 
-    /**
-     * Sets the owner of this vehicle.
-     *
-     * @param owner New owner of this vehicle.
-     * @throws Exception If user is not found.
-     */
-    @Override
-    public void setOwner(User owner) throws Exception {
+    public void setOwnerId(String ownerId) throws Exception {
         // TODO:
         // Think about the "user not found" exception thing.
-        this.owner = owner;
+        this.ownerId = ownerId;
     }
+
+    @Override
+    public String toString() {
+        return getPlate().plate;
+    }
+
+    /**
+     * A method that adds penalty to Vehicle
+     * @param p
+     */
+    public void addPenalty(Penalty p){
+        penalties.add(p);
+    }
+
+
+    /**
+     * A method that adds penalties to vehicle
+     * @param amount debt amount
+     */
+    public void addPenalty(double amount){
+        //penalty eklendiginde kisi uzerine de direktmen
+        //eklenmeli
+        penalties.add(new Penalty(getOwnerId(),
+                getPlate().plate,amount));
+    }
+
+    /**
+     * A method that adds penalties to vehicle
+     * @param amount debt amount
+     * @param reason penalty reason
+     */
+    public void addPenalty(double amount, String reason){
+        //penalty eklendiginde kisi uzerine de direktmen
+        //eklenmeli
+        penalties.add(new Penalty(getOwnerId(),getPlate().plate,amount,reason));
+    }
+
+
+
 }

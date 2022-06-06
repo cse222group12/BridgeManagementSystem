@@ -3,6 +3,32 @@ package bms_src;
 import bms_interface.IPenalty;
 
 public class Penalty implements IPenalty {
+
+    //datafields
+    private final String driverId;
+    private final String plateNumber;
+    private double debt = 0;
+    private String reason = "Traffic rules violation\n";
+
+    //Constructors
+    public Penalty(String driverId, String plateNumber) {
+        this.driverId = driverId;
+        this.plateNumber = plateNumber;
+    }
+
+    public Penalty(String driverId,String plateNumber,double debt) {
+        this.driverId = driverId;
+        this.plateNumber = plateNumber;
+        this.debt = debt;
+    }
+
+    public Penalty(String driverId,String plateNumber,double debt, String reason) {
+        this.driverId = driverId;
+        this.plateNumber = plateNumber;
+        this.debt = debt;
+        this.reason = reason;
+    }
+
     /**
      * Get the penalty reason
      *
@@ -10,7 +36,7 @@ public class Penalty implements IPenalty {
      */
     @Override
     public String getReason() {
-        return null;
+        return reason;
     }
 
     /**
@@ -19,8 +45,8 @@ public class Penalty implements IPenalty {
      * @return debt price
      */
     @Override
-    public int getDebt() {
-        return 0;
+    public double getDebt() {
+        return debt;
     }
 
     /**
@@ -29,8 +55,8 @@ public class Penalty implements IPenalty {
      * @return guilty driver
      */
     @Override
-    public User getDriver() {
-        return null;
+    public String getDriverID() {
+        return driverId;
     }
 
     /**
@@ -40,7 +66,7 @@ public class Penalty implements IPenalty {
      */
     @Override
     public void setReason(String reason) {
-
+        this.reason = reason;
     }
 
     /**
@@ -49,17 +75,16 @@ public class Penalty implements IPenalty {
      * @param debt debt price
      */
     @Override
-    public void setDebt(int debt) {
-
+    public void setDebt(double debt) {
+        this.debt = debt;
     }
 
-    /**
-     * Set the guilty driver
-     *
-     * @param driver guilty driver
-     */
     @Override
-    public void setDriver(User driver) {
-
+    public String toString() {
+        return "Penalty{" +
+                "driverId='" + driverId + '\'' +
+                ", debt=" + debt +
+                ", reason='" + reason + '\'' +
+                '}';
     }
 }

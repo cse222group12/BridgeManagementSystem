@@ -5,9 +5,17 @@ import java.util.function.Function;
 /**
  * Abstract class for vehicle plates to handle them more easily.
  */
-public abstract class Plate {
+public  class Plate implements Comparable<Plate> {
 
-    private String plate;
+    String plate;
+
+    public Plate(String plate){
+        this.plate = plate;
+    }
+
+    public String getPlate() {
+        return plate;
+    }
 
     /**
      * Constructs a new plate if given plate satisfies given validator function.
@@ -17,6 +25,11 @@ public abstract class Plate {
     private Plate(Function<String, Boolean> validator, String plate) {
         if(validator.apply(plate.toUpperCase())) this.plate = plate.toUpperCase();
         else throw new RuntimeException("Invalid plate");
+    }
+
+    @Override
+    public int compareTo(Plate o) {
+        return this.plate.compareTo(o.plate);
     }
 
     /**
@@ -32,6 +45,11 @@ public abstract class Plate {
          */
         public Turkey(String plate) {
             super(validator, plate);
+        }
+
+        @Override
+        public int compareTo(Plate o) {
+            return this.plate.compareTo(o.plate);
         }
     }
 }

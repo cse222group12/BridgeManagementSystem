@@ -53,12 +53,19 @@ public interface IUser {
      * Show user's account balance
      * @return balance
      */
-    int showBalance();
+    double showBalance();
 
     /**
      * Money adding operation to user's balance
      * @param money the amount of money
      * @return old balance of account
      */
-    int addToBalance(int money);
+    double addToBalance(double money);
+
+    /**
+     * A method that checks if there is debt or not
+     * @return true if there is any debt
+     *         false if not
+     */
+    boolean isThereAnyDebt();
 }

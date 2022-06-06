@@ -2,7 +2,11 @@ package bms_src;
 
 import bms_interface.IStaff;
 
-public class Staff extends DataBase implements IStaff {
+public abstract class Staff extends User implements IStaff {
+
+    public Staff(String staff_name, String id_number) {
+        super(staff_name, id_number);
+    }
 
     /**
      * Get Staff Member's ID

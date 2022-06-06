@@ -4,6 +4,10 @@ import bms_interface.IOfficer;
 
 public class Officer extends Staff implements IOfficer {
 
+    public Officer(String staff_name, String id_number) {
+        super(staff_name, id_number);
+    }
+
     /**
      * Send penalty to a user which is actually guilty driver
      *

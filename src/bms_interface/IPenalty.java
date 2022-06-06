@@ -14,13 +14,13 @@ public interface IPenalty {
      * Get the penalty debt
      * @return debt price
      */
-    int getDebt();
+    double getDebt();
 
     /**
      * Get the guilty driver
      * @return guilty driver
      */
-    User getDriver();
+    String getDriverID();
 
     /**
      * Set the reason
@@ -32,12 +32,6 @@ public interface IPenalty {
      * Set the penalty debt
      * @param debt debt price
      */
-    void setDebt(int debt);
-
-    /**
-     * Set the guilty driver
-     * @param driver guilty driver
-     */
-    void setDriver(User driver);
+    void setDebt(double debt);
 
 }
