@@ -3,6 +3,8 @@ package bms_src;
 import bms_interface.IVehicle;
 import data_structures.KWPriorityQueue;
 
+import java.util.Iterator;
+
 public class Vehicle implements IVehicle {
 
     private Plate plate;
@@ -116,6 +118,13 @@ public class Vehicle implements IVehicle {
         //eklenmeli
         penalties.add(new Penalty(getOwnerId(),
                 getPlate().plate,amount));
+    }
+
+    public void getPenalties(){
+        Iterator<Penalty> iterator=  penalties.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
     }
 
     /**

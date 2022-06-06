@@ -13,6 +13,8 @@ public class VehicleTest {
         v.addPenalty(123);
         v.addPenalty(100,
                 "asiri hiz");
+
+        v.getPenalties();
         System.out.println(v.getOwnerId());
 
     }

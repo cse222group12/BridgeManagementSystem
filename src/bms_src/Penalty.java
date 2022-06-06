@@ -2,13 +2,14 @@ package bms_src;
 
 import bms_interface.IPenalty;
 
-public class Penalty implements IPenalty {
+public class Penalty  implements IPenalty, Comparable<Penalty> {
+
 
     //datafields
     private final String driverId;
     private final String plateNumber;
     private double debt = 0;
-    private String reason = "Traffic rules violation\n";
+    private String reason = "Traffic rules violation";
 
     //Constructors
     public Penalty(String driverId, String plateNumber) {
@@ -86,5 +87,15 @@ public class Penalty implements IPenalty {
                 ", debt=" + debt +
                 ", reason='" + reason + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Penalty o) {
+        if (o.getDebt()>debt)
+            return 1;
+        else if (o.getDebt() == debt)
+            return 0;
+
+        return -1;
     }
 }

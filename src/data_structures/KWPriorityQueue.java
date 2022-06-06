@@ -21,7 +21,7 @@ public class KWPriorityQueue<E> extends AbstractQueue<E>
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return theData.iterator();
     }
 
     /** Insert an item into the priority queue.
