@@ -11,10 +11,15 @@ public class VehicleTest {
         Vehicle v = new Vehicle(new Plate("34kv434"),user.getId_number(), IVehicle.Type.Truck);
         v.addPenalty(100);
         v.addPenalty(123);
+        v.addPenalty(323);
+        v.addPenalty(3);
+        v.addPenalty(13);
+        v.addPenalty(100003);
         v.addPenalty(100,
                 "asiri hiz");
 
         v.getPenalties();
+
         System.out.println(v.getOwnerId());
 
     }

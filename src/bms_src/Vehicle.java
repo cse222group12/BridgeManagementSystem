@@ -109,6 +109,7 @@ public class Vehicle implements IVehicle {
     }
 
 
+
     /**
      * A method that adds penalties to vehicle
      * @param amount debt amount
@@ -137,7 +138,5 @@ public class Vehicle implements IVehicle {
         //eklenmeli
         penalties.add(new Penalty(getOwnerId(),getPlate().plate,amount,reason));
     }
-
-
 
 }
