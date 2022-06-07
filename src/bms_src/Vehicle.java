@@ -5,7 +5,7 @@ import data_structures.KWPriorityQueue;
 
 import java.util.Iterator;
 
-public class Vehicle implements IVehicle {
+public class Vehicle implements IVehicle, Comparable<Vehicle> {
 
     private Plate plate;
     private String ownerId;
@@ -139,4 +139,8 @@ public class Vehicle implements IVehicle {
         penalties.add(new Penalty(getOwnerId(),getPlate().plate,amount,reason));
     }
 
+    @Override
+    public int compareTo(Vehicle o) {
+        return this.getPlate().plate.compareTo(o.getPlate().plate);
+    }
 }

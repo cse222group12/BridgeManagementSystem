@@ -1,4 +1,4 @@
-package bms_src;
+package data_structures;
 
 public interface SearchTree<E>{
     boolean add(E item);
