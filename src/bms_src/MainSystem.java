@@ -1,5 +1,6 @@
 package bms_src;
 
+import Jgraph.JGraph;
 import com.sun.tools.javac.Main;
 import data_structures.Vertex;
 import koffman_src.AVLTree;
@@ -14,15 +15,19 @@ public class MainSystem {
     //holds every person in the system
     HashtableChain<String,Person> persons;
 
-    //bu sadece vertex, graph seklinde tutulmali cityler
-    Vertex<City> aCity;
+    JGraph<City,Integer> cities;
 
     AVLTree<Vehicle> blackListVehicles;
 
     //
     public MainSystem(){
         persons = new HashtableChain<>();
-        aCity = new Vertex<>(new City());
+        cities = new JGraph<>();
+    }
+
+
+    public void addCity(City aCity){
+        cities.addNode(aCity);
     }
 
     /**
