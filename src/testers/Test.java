@@ -1,9 +1,10 @@
 package testers;
 import bms_interface.*;
+import bms_src.BMS;
 
 
 public class Test {
     public static void main(String[] args) {
-        System.out.println("test");
+        BMS bms = new BMS();
     }
 }

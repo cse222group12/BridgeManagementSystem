@@ -4,6 +4,9 @@ package bms_src;
  * An abstract class to classify base user`s class
  */
 public abstract class Person {
+
+    String label; // is this person a user or toll clerk or officer etc...
+
     //Datafields
     //Person`s name
     private String name;

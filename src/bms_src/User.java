@@ -47,10 +47,8 @@ public class User extends Person implements IUser {
      * to terminal
      */
     public void showAllPlates(){
-        Iterator<Plate> iterator= vehicles.iterator();
 
-        while (iterator.hasNext())
-            System.out.println(iterator.next().getPlate());
+        for (Plate vehicle : vehicles) System.out.println(vehicle.getPlate());
     }
 
     /**
