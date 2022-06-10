@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 public class Menu {
     private final String header;
-    private final String[] options;
+    private final Pair<String, Runnable>[] options;
     private Integer chosenOption;
 
-    public Menu(String _header,String[] _options){
+
+    public Menu(String _header, Pair<String, Runnable>[] _options){
         header = _header;
         options = _options;
     }
