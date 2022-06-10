@@ -12,7 +12,7 @@ public class BMS extends DataBase implements IBMS {
         Stack<Menu> demo = new Stack<>();
 
 
-        demo.push(new Menu("Welcome to the Bridge Management System v1.2.2", new String[]{"Login", "Sign in"}));
+        demo.push(null);
         while(!demo.isEmpty()){
             System.out.println(demo.peek());
             int opt = demo.peek().getChosenOption();

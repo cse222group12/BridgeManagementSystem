@@ -1,5 +1,7 @@
 package bms_src;
 
+import java.util.Collection;
+
 public class Pair<K, V> {
     private K key;
     private V value;
@@ -23,5 +25,19 @@ public class Pair<K, V> {
 
     public V getValue() {
         return value;
+    }
+
+    public static<K, V> Pair<K, V>[] of(K[] keys, V[] values) {
+        if (keys.length != values.length) {
+            throw new RuntimeException("The number of keys and values must be equal.");
+        }
+
+        Pair<K, V>[] pairs = new Pair[keys.length];
+
+        for (int i = 0; i < keys.length; i++) {
+            pairs[i] = new Pair<>(keys[i], values[i]);
+        }
+
+        return pairs;
     }
 }
