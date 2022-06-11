@@ -26,7 +26,6 @@ public class BMS extends DataBase implements IBMS {
 
         String userLabel = null;
         Stack<Menu> demo = new Stack<>();
-        demo.push(null);
         while(!demo.isEmpty()){
             System.out.println(demo.peek());
             int opt = demo.peek().getChosenOption();
