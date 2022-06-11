@@ -15,12 +15,30 @@ public class Menu {
 
     private static final Stack<Menu> menus = new Stack<>();
 
+    /**
+     * Constructs a menu as in the form of:
+     * HEADER
+     * OPTION1
+     * OPTION2
+     * ...
+     * Where HEADER is given <code>_header</code> and list of options is given <code>_options</code>.
+     * @param _header   Header text of menu.
+     * @param _options  Array of option pairs consisting of their headers and functions to execute upon selection.
+     */
     public Menu(String _header, Pair<String, Runnable>[] _options){
         header = _header;
         options = _options;
         defaultReturn = false;
     }
 
+    /**
+     * Constructs a menu but with an extra option at the end with the number zero before it, that always upon selection
+     * returns to the previous menu.
+     * @see Menu
+     * @param _header               Header text of menu.
+     * @param _options              Array of option pairs consisting of their headers and functions to execute upon selection.
+     * @param returnOptionHeader    The header of the last extra option that returns to the previous menu.
+     */
     public Menu(String _header, Pair<String, Runnable>[] _options, String returnOptionHeader){
         header = _header;
         options = _options;
