@@ -4,8 +4,9 @@ import bms_interface.IAdmin;
 
 public class Admin extends Staff implements IAdmin  {
 
-    public Admin(String staff_name, String id_number) {
-        super(staff_name, id_number);
+    public Admin(String username, String password) {
+        super(username, password);
+        this.label = "normal_admin";
     }
 
     /**

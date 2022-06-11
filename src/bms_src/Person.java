@@ -9,31 +9,39 @@ public abstract class Person {
 
     //Datafields
     //Person`s name
-    private String name;
+    private String username;
     //User`s unique id number
-    private String id_number;
+    private String password;
     //        isIDValid();  //Idinin valid olup olmamasi
     //        check edilecek Userlar hash mapte tutulduktan sonra
 
 
-    public Person(String name, String id_number) {
-        this.name = name;
-        this.id_number = id_number;
+    public Person(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getLabel() {
+        return label;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getPassword() {
+        return password;
     }
 
-    public String getId_number() {
-        return id_number;
+    public String getUsername() {
+        return username;
     }
 
-    public void setId_number(String id_number) {
-        this.id_number = id_number;
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

@@ -6,18 +6,6 @@ import bms_src.Vehicle;
 public interface IUser {
 
     /**
-     * Get the username
-     * @return username of user
-     */
-    String getName();//UserName must be unique
-
-    /**
-     * set the username it should be check is it unique or not
-     * @param userName
-     */
-    void setName(String userName);
-
-    /**
      * add vehicle to account
      * @param vehicle
      * @throws Exception

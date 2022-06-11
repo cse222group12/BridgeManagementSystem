@@ -2,9 +2,10 @@ package bms_src;
 
 import bms_interface.ISuperAdmin;
 
-public class SuperAdmin extends Person implements ISuperAdmin {
-    public SuperAdmin(String name, String id_number) {
-        super(name, id_number);
+public class SuperAdmin extends Staff implements ISuperAdmin {
+    public SuperAdmin(String username, String password) {
+        super(username, password);
+        this.label = "super_admin";
     }
 
     @Override

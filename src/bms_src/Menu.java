@@ -83,7 +83,7 @@ public class Menu {
         StringBuilder sb = new StringBuilder();
         sb.append(header).append("\n");
         for(int i = 0 ; i < this.options.length; i++){
-            sb.append(i + 1).append(". ").append(this.options[i]).append("\n");
+            sb.append(i + 1).append(". ").append(this.options[i].getKey()).append("\n");
         }
         sb.append(options.length + 1).append(". Exit");
         return sb.toString();
