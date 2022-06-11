@@ -9,7 +9,6 @@ public abstract class SuperAdminMenuContent {
             "Çalışanları gör",
             "Whitelisti aç",
             "Blacklisti aç",
-            "Geri dön",
     };
 
     private static final Runnable[] optionRunnables = new Runnable[]{
@@ -17,7 +16,6 @@ public abstract class SuperAdminMenuContent {
             () -> Menu.push(Menu.SuperAdminViewStaff),
             () -> Menu.push(Menu.SuperAdminWhitelist),
             () -> Menu.push(Menu.SuperAdminBlacklist),
-            Menu::pop,
     };
 
     public static final Pair<String, Runnable>[] options = Pair.of(optionHeaders, optionRunnables);

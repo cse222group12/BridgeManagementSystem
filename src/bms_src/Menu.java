@@ -10,15 +10,52 @@ public class Menu {
     private final Pair<String, Runnable>[] options;
     private Integer chosenOption;
 
+    private boolean defaultReturn;
+    private String returnOptionHeader;
+
     private static final Stack<Menu> menus = new Stack<>();
 
     public Menu(String _header, Pair<String, Runnable>[] _options){
         header = _header;
         options = _options;
+        defaultReturn = false;
     }
 
-    public void focus() {
-        // On execution of this function print this menu and wait for a user input.
+    public Menu(String _header, Pair<String, Runnable>[] _options, String returnOptionHeader){
+        header = _header;
+        options = _options;
+        defaultReturn = true;
+        this.returnOptionHeader = returnOptionHeader;
+    }
+
+    /**
+     * Displays this menu.
+     */
+    private void focus() {
+        while (!menus.isEmpty() && menus.peek().equals(this)) {
+            System.out.println(header);
+
+            int i = defaultReturn ? 1 : 0;
+
+            for (Pair<String, Runnable> option : options) {
+                System.out.println(i + ") " + option.getKey());
+                i++;
+            }
+
+            if (defaultReturn) {
+                System.out.println("0) " + returnOptionHeader);
+            }
+
+            chosenOption = new Scanner(System.in).nextInt();
+
+            if (defaultReturn) {
+                if (chosenOption == 0) pop();
+                else options[chosenOption - 1].getValue().run();
+            }
+            else {
+                options[chosenOption].getValue().run();
+            }
+        }
     }
 
     public Integer getChosenOption(){
@@ -67,13 +104,16 @@ public class Menu {
      */
     public static int pop() {
         int index = menus.pop().chosenOption;
-        menus.peek().focus();
+        if (!menus.isEmpty()) menus.peek().focus();
         return index;
     }
 
-    public static final Menu SuperAdminMenu = new Menu("Süper Admin Menüsü", SuperAdminMenuContent.options);
-    public static final Menu SuperAdminViewHistory = new Menu("Etkinlik Geçmişi Menüsü", SuperAdminViewHistoryMenuContent.options);
-    public static final Menu SuperAdminViewStaff = new Menu("Çalışan Kayıtları Menüsü", SuperAdminViewStaffMenuContent.options);
-    public static final Menu SuperAdminBlacklist = new Menu("Blacklist Menüsü", SuperAdminBlacklistMenuContent.options);
-    public static final Menu SuperAdminWhitelist = new Menu("Whitelist Menüsü", SuperAdminWhitelistMenuContent.options);
+    // TODO: Make a proper main menu.
+    public static final Menu Welcome = new Menu("Giriş Menüsü", MainMenuContent.options, "Çıkış");
+
+    public static final Menu SuperAdmin = new Menu("Süper Admin Menüsü", SuperAdminMenuContent.options, "Geri dön");
+    public static final Menu SuperAdminViewHistory = new Menu("Etkinlik Geçmişi Menüsü", SuperAdminViewHistoryMenuContent.options, "Geri dön");
+    public static final Menu SuperAdminViewStaff = new Menu("Çalışan Kayıtları Menüsü", SuperAdminViewStaffMenuContent.options, "Geri dön");
+    public static final Menu SuperAdminBlacklist = new Menu("Blacklist Menüsü", SuperAdminBlacklistMenuContent.options, "Geri dön");
+    public static final Menu SuperAdminWhitelist = new Menu("Whitelist Menüsü", SuperAdminWhitelistMenuContent.options, "Geri dön");
 }

@@ -9,14 +9,12 @@ public abstract class SuperAdminBlacklistMenuContent {
             "Listele",
             "Ekle",
             "Çıkar",
-            "Geri dön",
     };
 
     private static final Runnable[] optionRunnables = new Runnable[]{
             SuperAdminBlacklistMenuContent::printList,
             SuperAdminBlacklistMenuContent::add,
             SuperAdminBlacklistMenuContent::remove,
-            Menu::pop,
     };
 
     public static final Pair<String, Runnable>[] options = Pair.of(optionHeaders, optionRunnables);

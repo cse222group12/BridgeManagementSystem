@@ -18,7 +18,6 @@ public abstract class SuperAdminViewStaffMenuContent {
             "Şehir seç",
             "Köprü seç",
             "Çalışan türü seç",
-            "Geri dön",
     };
 
     private static final Runnable[] optionRunnables = new Runnable[]{
@@ -27,7 +26,6 @@ public abstract class SuperAdminViewStaffMenuContent {
             SuperAdminViewStaffMenuContent::updateCities,
             SuperAdminViewStaffMenuContent::updateBridges,
             SuperAdminViewStaffMenuContent::updateStaffTypes,
-            Menu::pop,
     };
 
     public static final Pair<String, Runnable>[] options = Pair.of(optionHeaders, optionRunnables);

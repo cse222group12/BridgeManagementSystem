@@ -9,14 +9,12 @@ public abstract class SuperAdminWhitelistMenuContent {
             "Listele",
             "Ekle",
             "Çıkar",
-            "Geri dön",
     };
 
     private static final Runnable[] optionRunnables = new Runnable[]{
             SuperAdminWhitelistMenuContent::printList,
             SuperAdminWhitelistMenuContent::add,
             SuperAdminWhitelistMenuContent::remove,
-            Menu::pop,
     };
 
     public static final Pair<String, Runnable>[] options = Pair.of(optionHeaders, optionRunnables);

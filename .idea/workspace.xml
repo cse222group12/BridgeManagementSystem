@@ -5,7 +5,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bms_src/BMS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bms_src/BMS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bms_src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bms_src/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bms_src/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bms_src/Pair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bms_src/menus/SuperAdminBlacklistMenuContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bms_src/menus/SuperAdminBlacklistMenuContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bms_src/menus/SuperAdminMenuContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bms_src/menus/SuperAdminMenuContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bms_src/menus/SuperAdminViewHistoryMenuContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bms_src/menus/SuperAdminViewHistoryMenuContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bms_src/menus/SuperAdminViewStaffMenuContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bms_src/menus/SuperAdminViewStaffMenuContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bms_src/menus/SuperAdminWhitelistMenuContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bms_src/menus/SuperAdminWhitelistMenuContent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,19 +49,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/erenc/OneDrive - Gebze Teknik Üniversitesi/CSE Homeworks/cse222/term project/BridgeManagementSystem&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/erenc/OneDrive - Gebze Teknik Üniversitesi/CSE Homeworks/cse222/term project/BridgeManagementSystem",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "File.Encoding"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\OmerF\Desktop\Okul Dersleri\222 - Data Structures\Proje\BridgeManagementSystem\src\bms_src" />
@@ -103,7 +108,12 @@
       <workItem from="1654854724127" duration="3623000" />
       <workItem from="1654858608529" duration="5529000" />
       <workItem from="1654869022869" duration="7421000" />
-      <workItem from="1654885499466" duration="3953000" />
+      <workItem from="1654885499466" duration="4112000" />
+      <workItem from="1654947878073" duration="2581000" />
+      <workItem from="1654950664756" duration="219000" />
+      <workItem from="1654951018820" duration="256000" />
+      <workItem from="1654951300917" duration="778000" />
+      <workItem from="1654952121340" duration="212000" />
     </task>
     <servers />
   </component>

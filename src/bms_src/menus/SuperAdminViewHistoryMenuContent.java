@@ -26,7 +26,6 @@ public abstract class SuperAdminViewHistoryMenuContent {
             "Araç türü gir",
             "Şehir gir",
             "Köprü gir",
-            "Geri dön",
     };
 
     private static final Runnable[] optionRunnables = new Runnable[]{
@@ -37,7 +36,6 @@ public abstract class SuperAdminViewHistoryMenuContent {
             SuperAdminViewHistoryMenuContent::updateValidVehicleTypes,
             SuperAdminViewHistoryMenuContent::updateCities,
             SuperAdminViewHistoryMenuContent::updateBridges,
-            Menu::pop,
     };
 
     public static final Pair<String, Runnable>[] options = Pair.of(optionHeaders, optionRunnables);
