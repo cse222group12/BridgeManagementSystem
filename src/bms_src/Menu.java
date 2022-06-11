@@ -66,11 +66,16 @@ public class Menu {
 
             chosenOption = new Scanner(System.in).nextInt();
 
+
             if (defaultReturn) {
-                if (chosenOption == 0) pop();
-                else options[chosenOption - 1].getValue().run();
+                if (chosenOption == 0) {
+                    pop();
+                    continue;
+                }
+                chosenOption--;
             }
-            else {
+
+            if (chosenOption > -1 && chosenOption < options.length) {
                 options[chosenOption].getValue().run();
             }
         }
