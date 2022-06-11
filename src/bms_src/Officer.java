@@ -4,8 +4,8 @@ import bms_interface.IOfficer;
 
 public class Officer extends Staff implements IOfficer {
 
-    public Officer(String staff_name, String id_number) {
-        super(staff_name, id_number);
+    public Officer(String username, String password) {
+        super(username, password);
     }
 
     /**

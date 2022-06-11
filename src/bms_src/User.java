@@ -23,8 +23,9 @@ public class User extends Person implements IUser {
     double debt = 0;
 
     //Constructors
-    public User(String user_name, String id_number){
-        super(user_name,id_number);
+    public User(String user_name, String password){
+        super(user_name,password);
+        this.label = "user";
 //        isIDValid();  //Idinin valid olup olmamasi
 //        check edilecek Userlar hash mapte tutulduktan sonra
         vehicles = new SkipList<>();

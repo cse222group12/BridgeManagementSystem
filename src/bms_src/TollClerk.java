@@ -8,6 +8,7 @@ public class TollClerk extends Staff implements ITollClerk {
 
     public TollClerk(String staff_name, String id_number) {
         super(staff_name, id_number);
+        this.label = "toll_clerk";
     }
 
     /**

@@ -2,7 +2,7 @@ package bms_src;
 
 import bms_interface.IStaff;
 
-public abstract class Staff extends User implements IStaff {
+public abstract class Staff extends Person implements IStaff {
 
     public Staff(String staff_name, String id_number) {
         super(staff_name, id_number);

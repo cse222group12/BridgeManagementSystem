@@ -36,7 +36,7 @@ public class MainSystem {
      * @return person
      */
     public Person addPerson(Person person){
-        return persons.put(person.getId_number(),person);
+        return persons.put(person.getUsername(),person);
     }
 
     /**
@@ -45,7 +45,7 @@ public class MainSystem {
      * @return person
      */
     public Person removePerson(Person person){
-        return persons.remove(person.getId_number());
+        return persons.remove(person.getUsername());
     }
 
     /**
