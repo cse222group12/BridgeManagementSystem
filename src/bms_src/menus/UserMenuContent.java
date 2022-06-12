@@ -12,7 +12,7 @@ public abstract class UserMenuContent {
 
     private static final Runnable[] optionRunnables = new Runnable[]{
             UserMenuContent::showBalance,
-            () -> Menu.push(Menu.SuperAdminBlacklist),
+            () -> Menu.push(Menu.SuperAdminBlacklist), //TODO!!
             UserMenuContent::showPenalties,
     };
 

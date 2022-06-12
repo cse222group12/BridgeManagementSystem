@@ -8,15 +8,13 @@ import koffman_src.HashtableChain;
 import java.util.Stack;
 
 public class BMS extends DataBase implements IBMS {
-    HashtableChain<String,Person> persons;
+    protected static HashtableChain<String,Person> persons; //TODO it could be private, protected for testing
 
     JGraph<City,Integer> cities;
 
     AVLTree<Vehicle> blackListVehicles;
 
     public BMS(){
-
-        Menu.push(Menu.Welcome);
         persons = new HashtableChain<>();
         cities = new JGraph<>();
 
@@ -24,10 +22,13 @@ public class BMS extends DataBase implements IBMS {
         User user1 = new User("bygt","0000");
         TollClerk tollClerk = new TollClerk("gisememur123","4141");
         Officer officer = new Officer("mesutkomiser", "3434");
+        Admin admin = new Admin("bursa","12344");
         persons.put(superAdmin.getUsername(),superAdmin);
         persons.put(user1.getUsername(), user1);
         persons.put(tollClerk.getUsername(),tollClerk);
-        System.out.println(Menu.pop());
+        persons.put(officer.getUsername(),officer);
+        persons.put(admin.getUsername(),admin);
+        Menu.push(Menu.Welcome);
 
 
 
