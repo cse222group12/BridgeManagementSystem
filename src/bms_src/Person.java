@@ -12,7 +12,7 @@ public abstract class Person {
     private String username;
     //User`s unique id number
     private String password;
-    //        isIDValid();  //Idinin valid olup olmamasi
+    //        isUsernameValid();  //namein valid olup olmamasi
     //        check edilecek Userlar hash mapte tutulduktan sonra
 
 

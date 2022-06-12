@@ -39,7 +39,8 @@ public class Admin extends Staff implements IAdmin  {
      * @return old value of the staff member
      */
     @Override
-    public Staff updateStaffMember(Staff staffMember, String staffID, String branch) {
+    public Staff updateStaffMember(Staff staffMember,
+                                   String staffID, String branch) {
         return null;
     }
 

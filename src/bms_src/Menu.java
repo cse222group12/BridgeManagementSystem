@@ -134,11 +134,14 @@ public class Menu {
     // TODO: Make a proper main menu.
     public static final Menu Welcome = new Menu("Welcome to HGS", MainMenuContent.options, "Exit");
 
+
     public static final Menu SuperAdmin = new Menu("Süper Admin Menüsü", SuperAdminMenuContent.options, "Go back");
     public static final Menu SuperAdminViewHistory = new Menu("Etkinlik Geçmişi Menüsü", SuperAdminViewHistoryMenuContent.options, "Go back");
     public static final Menu SuperAdminViewStaff = new Menu("Çalışan Kayıtları Menüsü", SuperAdminViewStaffMenuContent.options, "Go back");
     public static final Menu SuperAdminBlacklist = new Menu("Blacklist Menüsü", SuperAdminBlacklistMenuContent.options, "Go back");
-    public static final Menu SuperAdminWhitelist = new Menu("Whitelist Menüsü", SuperAdminWhitelistMenuContent.options, "Go back");
+    public static final Menu SuperAdminWhitelist = new Menu("Whitelist Menüsü",
+            SuperAdminWhitelistMenuContent.options, "Go back");
+
 
 
     public static final Menu User = new Menu("User menu:", UserMenuContent.options, "Go back");
@@ -148,6 +151,18 @@ public class Menu {
 
     public static final Menu Officer = new Menu("Officer Menu", OfficerMenuContent.options, "Go back");
 
-    public static final Menu Admin = new Menu("Admin Menu", OfficerMenuContent.options, "Go back"); //TODO!!! admin is not ready
+
+    //Admin
+    public static final Menu Admin = new Menu("Admin Menusu",
+            AdminMenuContent.options, "Go back");
+    public static final Menu AdminTollByVehicle = new Menu("Bilet Fiyat Menusu",
+            AdminMenuContent.options, "Go back");
+    public static final Menu AdminViewHistory = new Menu("Etkinlik Gecmisi",
+            AdminViewHistoryMenuContent.options, "Go back");
+    public static final Menu AdminViewStaff = new Menu("Calisanlar",
+            AdminViewStaffMenuContent.options, "Go back");
+
+
+    //    public static final Menu Admin = new Menu("Admin Menu", AdminMenuContent.options, "Go back"); //TODO!!! admin is not ready
 }
 
