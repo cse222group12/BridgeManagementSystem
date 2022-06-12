@@ -56,4 +56,8 @@ public interface IUser {
      *         false if not
      */
     boolean isThereAnyDebt();
+
+    boolean isThisPlateAvailable(String plate);
+
+
 }

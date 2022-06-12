@@ -39,7 +39,7 @@ public class User extends Person implements IUser {
      * @throws Exception
      */
     @Override
-    public void addVehicle(Vehicle vehicle) throws Exception {
+    public void addVehicle(Vehicle vehicle) {
         vehicles.add(vehicle.getPlate(),vehicle);
     }
 
@@ -47,9 +47,14 @@ public class User extends Person implements IUser {
      * A method that prints vehicles plate numbers
      * to terminal
      */
-    public void showAllPlates(){
-
-        for (Plate vehicle : vehicles) System.out.println(vehicle.getPlate());
+    public boolean showAllPlates(){
+        if(vehicles.size() != 0)
+            for (Plate vehicle : vehicles) System.out.println("# " + vehicle.getPlate());
+        else{
+            System.out.println("There is no vehicle here. Let's add some.\n");
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -65,6 +70,7 @@ public class User extends Person implements IUser {
         return vehicle;
     }
 
+
     /**
      * remove vehicle from account by plate
      *
@@ -72,7 +78,8 @@ public class User extends Person implements IUser {
      * @return removed vehicle
      * @throws Exception throws exception if the remove operation successfully or not
      */
-    public void removeVehicle(Plate plate) throws Exception {
+    public void removeVehicle(Plate plate) {
+
         vehicles.remove(plate);
     }
 
@@ -130,6 +137,16 @@ public class User extends Person implements IUser {
     @Override
     public boolean isThereAnyDebt() {
         return isZero(balance, 0.001);
+    }
+
+    @Override
+    public boolean isThisPlateAvailable(String plate) {
+        for (int i = 0; i< vehicles.size();i++ ) {
+            if(vehicles.get(new Plate(plate)) == null ) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean isZero(double value, double threshold){

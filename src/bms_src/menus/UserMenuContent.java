@@ -14,13 +14,18 @@ public abstract class UserMenuContent {
             "My Balance",
             "My Vehicles",
             "My Penalties",
+            "My Pass History",
     };
 
     private static final Runnable[] optionRunnables = new Runnable[]{
             UserMenuContent::showBalance,
             () -> Menu.push(Menu.UserVehicles), //TODO!!
             UserMenuContent::showPenalties,
+            UserMenuContent::showPassHistory,
     };
+
+    private static void showPassHistory() {
+    }
 
     private static void showPenalties() {
 
