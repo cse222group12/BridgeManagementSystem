@@ -1,9 +1,6 @@
 package bms_src.menus;
 
-import bms_src.BMS; //TODO it could be little bit dangerous
-import bms_src.Menu;
-import bms_src.Pair;
-import bms_src.Person;
+import bms_src.*;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -22,7 +19,19 @@ public abstract class MainMenuContent extends BMS {
     };
 
     private static void signUp() {
-        System.out.println("Signed up");
+        String username,password;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter new username: ");
+        username = sc.next();
+        if(persons.get(username) != null){
+            System.out.println("This username is alreay taken. Please try again!!");
+        }
+        else {
+            System.out.println("Enter your password: ");
+            password = sc.next();
+            User newUser = new User(username, password);
+            persons.put(username,newUser);
+        }
     }
 
     public static boolean login(){
