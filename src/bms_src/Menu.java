@@ -132,7 +132,7 @@ public class Menu {
     }
 
     // TODO: Make a proper main menu.
-    public static final Menu Welcome = new Menu("Giriş Menüsü", MainMenuContent.options, "Çıkış");
+    public static final Menu Welcome = new Menu("Welcome to HGS", MainMenuContent.options, "Exit");
 
     public static final Menu SuperAdmin = new Menu("Süper Admin Menüsü", SuperAdminMenuContent.options, "Geri dön");
     public static final Menu SuperAdminViewHistory = new Menu("Etkinlik Geçmişi Menüsü", SuperAdminViewHistoryMenuContent.options, "Geri dön");

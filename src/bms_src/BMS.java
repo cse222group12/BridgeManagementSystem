@@ -15,26 +15,21 @@ public class BMS extends DataBase implements IBMS {
     AVLTree<Vehicle> blackListVehicles;
 
     public BMS(){
-        Menu.push(Menu.SuperAdmin);
+
+        Menu.push(Menu.Welcome);
         persons = new HashtableChain<>();
         cities = new JGraph<>();
 
-        SuperAdmin superAdmin = new SuperAdmin("GOD", "0000");
+        SuperAdmin superAdmin = new SuperAdmin("GOD", "123");
+        User user1 = new User("bygt","0000");
+        TollClerk tollClerk = new TollClerk("gisememur123","4141");
+        Officer officer = new Officer("mesutkomiser", "3434");
+        persons.put(superAdmin.getUsername(),superAdmin);
+        persons.put(user1.getUsername(), user1);
+        persons.put(tollClerk.getUsername(),tollClerk);
+        System.out.println(Menu.pop());
 
 
 
-
-        String userLabel = null;
-        Stack<Menu> demo = new Stack<>();
-        while(!demo.isEmpty()){
-            System.out.println(demo.peek());
-            int opt = demo.peek().getChosenOption();
-            if(opt == -1) demo.pop();
-            else if (opt < 0 )
-                System.out.println("Invalid argument!");
-            else {
-                System.out.println(opt); //take the opt and choose the operation
-            }
-        }
     }
 }
