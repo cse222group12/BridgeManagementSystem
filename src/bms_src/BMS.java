@@ -8,34 +8,33 @@ import koffman_src.HashtableChain;
 import java.util.Stack;
 
 public class BMS extends DataBase implements IBMS {
-    HashtableChain<String,Person> persons;
+    public static Person currentUser;
+    protected static HashtableChain<String,Person> persons; //TODO it could be private, protected for testing
 
     JGraph<City,Integer> cities;
 
     AVLTree<Vehicle> blackListVehicles;
 
+
+
     public BMS(){
-        Menu.push(Menu.Welcome);
         persons = new HashtableChain<>();
         cities = new JGraph<>();
+        currentUser = null;
 
-        SuperAdmin superAdmin = new SuperAdmin("GOD", "0000");
+        SuperAdmin superAdmin = new SuperAdmin("GOD", "123");
+        User user1 = new User("bygt","0000");
+        user1.addToBalance(112.12);
 
+        TollClerk tollClerk = new TollClerk("gisememur123","4141");
+        Officer officer = new Officer("mesutkomiser", "3434");
+        Admin admin = new Admin("bursa","12344");
+        persons.put(superAdmin.getUsername(),superAdmin);
+        persons.put(user1.getUsername(), user1);
+        persons.put(tollClerk.getUsername(),tollClerk);
+        persons.put(officer.getUsername(),officer);
+        persons.put(admin.getUsername(),admin);
+        Menu.push(Menu.Welcome);
 
-
-
-        String userLabel = null;
-        Stack<Menu> demo = new Stack<>();
-        demo.push(null);
-        while(!demo.isEmpty()){
-            System.out.println(demo.peek());
-            int opt = demo.peek().getChosenOption();
-            if(opt == -1) demo.pop();
-            else if (opt < 0 )
-                System.out.println("Invalid argument!");
-            else {
-                System.out.println(opt); //take the opt and choose the operation
-            }
-        }
     }
 }

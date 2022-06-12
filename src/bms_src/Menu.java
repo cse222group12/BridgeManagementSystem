@@ -132,11 +132,34 @@ public class Menu {
     }
 
     // TODO: Make a proper main menu.
-    public static final Menu Welcome = new Menu("Giriş Menüsü", MainMenuContent.options, "Çıkış");
+    public static final Menu Welcome = new Menu("Welcome to HGS", MainMenuContent.options, "Exit");
 
-    public static final Menu SuperAdmin = new Menu("Süper Admin Menüsü", SuperAdminMenuContent.options, "Geri dön");
-    public static final Menu SuperAdminViewHistory = new Menu("Etkinlik Geçmişi Menüsü", SuperAdminViewHistoryMenuContent.options, "Geri dön");
-    public static final Menu SuperAdminViewStaff = new Menu("Çalışan Kayıtları Menüsü", SuperAdminViewStaffMenuContent.options, "Geri dön");
-    public static final Menu SuperAdminBlacklist = new Menu("Blacklist Menüsü", SuperAdminBlacklistMenuContent.options, "Geri dön");
-    public static final Menu SuperAdminWhitelist = new Menu("Whitelist Menüsü", SuperAdminWhitelistMenuContent.options, "Geri dön");
+
+    public static final Menu SuperAdmin = new Menu("Süper Admin Menüsü", SuperAdminMenuContent.options, "Go back");
+    public static final Menu SuperAdminViewHistory = new Menu("Etkinlik Geçmişi Menüsü", SuperAdminViewHistoryMenuContent.options, "Go back");
+    public static final Menu SuperAdminViewStaff = new Menu("Çalışan Kayıtları Menüsü", SuperAdminViewStaffMenuContent.options, "Go back");
+    public static final Menu SuperAdminBlacklist = new Menu("Blacklist Menüsü", SuperAdminBlacklistMenuContent.options, "Go back");
+    public static final Menu SuperAdminWhitelist = new Menu("Whitelist Menüsü",
+            SuperAdminWhitelistMenuContent.options, "Go back");
+
+
+
+    public static final Menu User = new Menu("User menu:", UserMenuContent.options, "Go back");
+    public static final Menu UserVehicles = new Menu("Your vehicles:", UserVehiclesMenuContent.options, "Go back");
+
+    public static final Menu TollClerk = new Menu("Toll Clerk Menu", TollClerkMenuContent.options, "Go back");
+
+    public static final Menu Officer = new Menu("Officer Menu", OfficerMenuContent.options, "Go back");
+
+
+    //Admin
+    public static final Menu Admin = new Menu("Admin Menusu",
+            AdminMenuContent.options, "Go back");
+    public static final Menu AdminTollByVehicle = new Menu("Bilet Fiyat Menusu",
+            AdminTollByVehicleMenuContent.options, "Go back");
+    public static final Menu AdminViewHistory = new Menu("Etkinlik Gecmisi",
+            AdminViewHistoryMenuContent.options, "Go back");
+    public static final Menu AdminViewStaff = new Menu("Calisanlar",
+            AdminViewStaffMenuContent.options, "Go back");
 }
+

@@ -6,6 +6,7 @@ public class Officer extends Staff implements IOfficer {
 
     public Officer(String username, String password) {
         super(username, password);
+        this.label = "officer";
     }
 
     /**
