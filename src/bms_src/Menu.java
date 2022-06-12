@@ -139,4 +139,8 @@ public class Menu {
     public static final Menu SuperAdminViewStaff = new Menu("Çalışan Kayıtları Menüsü", SuperAdminViewStaffMenuContent.options, "Geri dön");
     public static final Menu SuperAdminBlacklist = new Menu("Blacklist Menüsü", SuperAdminBlacklistMenuContent.options, "Geri dön");
     public static final Menu SuperAdminWhitelist = new Menu("Whitelist Menüsü", SuperAdminWhitelistMenuContent.options, "Geri dön");
+
+
+    public static final Menu User = new Menu("User menu:", UserMenuContent.options, "Geri dön");
+    public static final Menu UserVehicles = new Menu("Your vehicles:", UserVehiclesMenuContent.options, "Geri dön");
 }
