@@ -156,13 +156,10 @@ public class Menu {
     public static final Menu Admin = new Menu("Admin Menusu",
             AdminMenuContent.options, "Go back");
     public static final Menu AdminTollByVehicle = new Menu("Bilet Fiyat Menusu",
-            AdminMenuContent.options, "Go back");
+            AdminTollByVehicleMenuContent.options, "Go back");
     public static final Menu AdminViewHistory = new Menu("Etkinlik Gecmisi",
             AdminViewHistoryMenuContent.options, "Go back");
     public static final Menu AdminViewStaff = new Menu("Calisanlar",
             AdminViewStaffMenuContent.options, "Go back");
-
-
-    //    public static final Menu Admin = new Menu("Admin Menu", AdminMenuContent.options, "Go back"); //TODO!!! admin is not ready
 }
 

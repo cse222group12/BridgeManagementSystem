@@ -34,7 +34,7 @@ public abstract class MainMenuContent extends BMS {
         }
     }
 
-    public static boolean login(){
+    public static void login(){
         String username = null;
         String password = null;
         Scanner sc = new Scanner(System.in);
@@ -44,16 +44,15 @@ public abstract class MainMenuContent extends BMS {
         System.out.println("Enter your password: ");
         password = sc.next();
 
-       var currentUser = persons.get(username);
+       BMS.currentUser = persons.get(username);
 
-       if(currentUser == null){
+       if(BMS.currentUser == null){
            System.out.println("User not found!");
-           return false;
        }
 
-       else if(Objects.equals(currentUser.getPassword(), password)){
+       else if(Objects.equals(BMS.currentUser.getPassword(), password)){
 
-           String label = currentUser.getLabel();
+           String label = BMS.currentUser.getLabel();
            if(Objects.equals(label, "user")){
                Menu.push(Menu.User);
            }
@@ -74,12 +73,10 @@ public abstract class MainMenuContent extends BMS {
            }
 
 
-           return true;
        }
 
        else {
            System.out.println("Password is wrong. Please try again!");
-           return false;
        }
 
     }
