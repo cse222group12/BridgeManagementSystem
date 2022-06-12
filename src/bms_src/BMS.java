@@ -15,7 +15,7 @@ public class BMS extends DataBase implements IBMS {
     AVLTree<Vehicle> blackListVehicles;
 
     public BMS(){
-        Menu.push(Menu.SuperAdmin);
+        Menu.push(Menu.Welcome);
         persons = new HashtableChain<>();
         cities = new JGraph<>();
 
