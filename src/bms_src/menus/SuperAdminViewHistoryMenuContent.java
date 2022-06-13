@@ -43,22 +43,22 @@ public abstract class SuperAdminViewHistoryMenuContent {
 
     private static void printLast24h() {
         // Quite possibly can be better.
-        printActivity(ComparableDate.from(Date.from(Instant.now().minus(1, ChronoUnit.DAYS))));
+        printActivity((Date.from(Instant.now().minus(1, ChronoUnit.DAYS))));
     }
 
     private static void printLast7d() {
-        printActivity(ComparableDate.from(Date.from(Instant.now().minus(7, ChronoUnit.DAYS))));
+        printActivity((Date.from(Instant.now().minus(7, ChronoUnit.DAYS))));
     }
 
     private static void printLast30d() {
-        printActivity(ComparableDate.from(Date.from(Instant.now().minus(30, ChronoUnit.DAYS))));
+        printActivity((Date.from(Instant.now().minus(30, ChronoUnit.DAYS))));
     }
 
-     private static void printActivity(ComparableDate since) {
-        printActivity(since, ComparableDate.from(new Date()));
+     private static void printActivity(Date since) {
+        printActivity(since,new Date());
      }
 
-    private static void printActivity(ComparableDate start, ComparableDate end) {
+    private static void printActivity(Date start, Date end) {
         Iterator<City> cityIterator = MainSystem.getCityIterator();
         while (cityIterator.hasNext()) {
             City city = cityIterator.next();
@@ -68,9 +68,9 @@ public abstract class SuperAdminViewHistoryMenuContent {
                         // TODO:
                         // THIS IS DISGUSTING AND HORRENDOUS, CURRENT SKIPLIST CAN'T BE ITERATED WITH VALUES!!!!
                         // FIX IT!!!!
-                        SkipList<ComparableDate, Pass> passHistory = bridge.getPassHistory();
+                        SkipList<Date, Pass> passHistory = bridge.getPassHistory();
 
-                        for (ComparableDate passDate : passHistory) {
+                        for (Date passDate : passHistory) {
                             Pass pass = passHistory.get(passDate);
 
                             if (pass == null) continue;
@@ -93,7 +93,7 @@ public abstract class SuperAdminViewHistoryMenuContent {
         String userInput = "\n";
         Scanner scanner = new Scanner(System.in);
 
-        ComparableDate firstDate, lastDate;
+        Date firstDate, lastDate;
 
         SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
 
@@ -103,7 +103,7 @@ public abstract class SuperAdminViewHistoryMenuContent {
         }
 
         try {
-            firstDate = ComparableDate.from(dateFormatter.parse(userInput));
+            firstDate = (dateFormatter.parse(userInput));
         } catch (ParseException e) {
             System.out.println("Input was in an invalid format.");
             return;
@@ -116,7 +116,7 @@ public abstract class SuperAdminViewHistoryMenuContent {
         }
 
         try {
-            lastDate = ComparableDate.from(dateFormatter.parse(userInput));
+            lastDate = (dateFormatter.parse(userInput));
         } catch (ParseException e) {
             System.out.println("Input was in an invalid format.");
             return;

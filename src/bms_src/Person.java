@@ -21,6 +21,21 @@ public abstract class Person implements Comparable<Person> {
         this.password = password;
     }
 
+    public Person(String username){
+        this.username = username;
+    }
+
+    /**
+     * A method that compares persons by name
+     * @param o other person
+     * @return 0 if equal
+     *          1 if this.username>otherone`s
+     *          else -1
+     */
+    public int compareTo(Person o) {
+        return this.getUsername().compareTo(o.getUsername());
+    }
+
     public String getLabel() {
         return label;
     }
@@ -46,12 +61,18 @@ public abstract class Person implements Comparable<Person> {
     }
 
     @Override
-    public int compareTo(Person o) {
-        return username.compareTo(o.username);
+    public String toString() {
+        return username;
     }
 
     @Override
-    public String toString() {
-        return username;
+    public int hashCode() {
+        return username.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Person) return username.equals(((Person) obj).username);
+        return false;
     }
 }

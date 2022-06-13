@@ -18,7 +18,7 @@ public class BMS extends DataBase implements IBMS {
     public static Person currentUser;
     protected static HashtableChain<String,Person> persons; //TODO it could be private, protected for testing
 
-    JGraph<City,Integer> cities;
+    protected JGraph<City,Integer> cities;
 
     AVLTree<Vehicle> blackListVehicles;
 
@@ -48,16 +48,15 @@ public class BMS extends DataBase implements IBMS {
         City istanbul = new City("Istanbul");
         Bridge fsmBridge = new Bridge("Fatih Sultan Mehmet Bridge");
 
-        Pass[] passes = new Pass[20];
-        Arrays.setAll(passes, (i) -> new Pass());
-
         IVehicle.Type[] vehicleTypes = IVehicle.Type.values();
+        Pass[] passes = new Pass[20];
+        Arrays.setAll(passes, (i) -> new Pass(new Vehicle(new Plate("GP" + i), "", vehicleTypes[i % vehicleTypes.length])));
+
         int i = 0;
         for (Pass pass : passes) {
-            pass.setVehicle(new Vehicle(new Plate("GP" + i), "", vehicleTypes[(int) (i % vehicleTypes.length)]));
             pass.setCheckInTime(Date.from(Instant.now().minus(2L * i + 1, ChronoUnit.HALF_DAYS)));
             pass.setCheckOutTime(Date.from(Instant.now().minus(i, ChronoUnit.DAYS)));
-            fsmBridge.getPassHistory().add(ComparableDate.from(pass.getCheckInTime()), pass);
+            fsmBridge.getPassHistory().add(pass.getCheckInTime(), pass);
             i += i + 1;
         }
 
@@ -76,6 +75,7 @@ public class BMS extends DataBase implements IBMS {
 
         //-----------------------------SuperAdmin Tests
 
+        cities.addNode(new City("Istanbul"));
         Menu.push(Menu.Welcome);
 
     }

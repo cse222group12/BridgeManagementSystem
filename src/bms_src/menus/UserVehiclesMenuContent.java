@@ -1,47 +1,78 @@
 package bms_src.menus;
 
-import bms_src.Menu;
-import bms_src.Pair;
+import bms_interface.IVehicle;
+import bms_src.*;
+//import jdk.swing.interop.SwingInterOpUtils; NOTE: Compiler error
+
+import java.util.NoSuchElementException;
+import java.util.Scanner;
 
 public abstract class UserVehiclesMenuContent {
 
     private static final String[] optionHeaders = new String[]{
             "Show all",
-            "New vehicle",
+            "Add a new vehicle",
             "Remove a vehicle",
-            "Update a vehicle",
     };
 
     private static final Runnable[] optionRunnables = new Runnable[]{
             UserVehiclesMenuContent::listVehicles,
             UserVehiclesMenuContent::newVehicle,
             UserVehiclesMenuContent::removeVehicle,
-            UserVehiclesMenuContent::updateVehicle,
 
     };
 
     private static void newVehicle() {
-        /*TODO
-            takes the input from user for the new car, car added to user's vehicles list
-         */
-    }
+        String plate = null;
+        int type = 0;
+        IVehicle.Type[] v_type = new IVehicle.Type[5];
+        v_type[0] = IVehicle.Type.Automobile;
+        v_type[1] = IVehicle.Type.Minibus;
+        v_type[2] = IVehicle.Type.Bus;
+        v_type[3] = IVehicle.Type.Truck;
+        v_type[4] = IVehicle.Type.Motorcycle;
 
-    private static void updateVehicle() {
-        /*TODO
-            user choose the car from the list, and update it
-         */
+        Scanner sc = new Scanner(System.in);
+
+        User currUser = (User) BMS.currentUser;
+
+        System.out.print("Enter the plate: ");
+        plate = sc.next();
+
+        System.out.println("Choose type of the vehicle: ");
+
+        for(int i = 0; i< v_type.length; i++){
+            System.out.println("[" + i + "]" + v_type[i]);
+        }
+        String _type = sc.next();
+        type = Integer.parseInt(_type);
+        Plate plate1 = new Plate(plate.toUpperCase());
+        Vehicle vehicle = new Vehicle(plate1,currUser.getUsername(), v_type[type]);
+        currUser.addVehicle(vehicle);
     }
 
     private static void removeVehicle() {
-        /*TODO
-            user choose the car from the list and remove it
-         */
+        String plate = null;
+        Scanner sc = new Scanner(System.in);
+        User currUser = (User) BMS.currentUser;
+        boolean isThereVehicle = currUser.showAllPlates();
+
+        if (isThereVehicle) {
+            System.out.println("Enter the plate of the car that'll be removed: ");
+            plate = sc.next();
+            try {
+                currUser.removeVehicle(new Plate(plate));
+                System.out.println("Vehicle removed successfully!");
+            }catch (Exception NoSuchElementException){
+                System.out.println("Plate not found!");
+            }
+        }
+
     }
 
     private static void listVehicles() {
-        /*TODO
-            list of user's vehicles
-         */
+        User currUser = (User) BMS.currentUser;
+        currUser.showAllPlates();
     }
 
     public static final Pair<String, Runnable>[] options = Pair.of(optionHeaders, optionRunnables);
