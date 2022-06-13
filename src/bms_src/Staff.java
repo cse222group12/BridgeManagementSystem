@@ -47,4 +47,26 @@ public abstract class Staff extends Person implements IStaff {
     public void setBranch(String branch) {
 
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " | " + getClass().getSimpleName();
+    }
+
+    public enum Type {
+        TollClerk(bms_src.TollClerk.class),
+        Officer(bms_src.Officer.class),
+        Admin(bms_src.Admin.class),
+        SuperAdmin(bms_src.SuperAdmin.class);
+
+        private final Class<? extends Staff> staffClass;
+
+        Type(Class<? extends Staff> staffClass) {
+            this.staffClass = staffClass;
+        }
+
+        public Class<? extends Staff> getStaffClass() {
+            return staffClass;
+        }
+    }
 }

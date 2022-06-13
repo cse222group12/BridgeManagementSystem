@@ -2,6 +2,7 @@ package bms_src;
 
 import bms_src.menus.*;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -64,8 +65,12 @@ public class Menu {
                 System.out.println("0) " + returnOptionHeader);
             }
 
-            chosenOption = new Scanner(System.in).nextInt();
-
+            try {
+                chosenOption = new Scanner(System.in).nextInt();
+            }
+            catch (InputMismatchException e) {
+                continue;
+            }
 
             if (defaultReturn) {
                 if (chosenOption == 0) {
@@ -135,12 +140,10 @@ public class Menu {
     public static final Menu Welcome = new Menu("Welcome to HGS", MainMenuContent.options, "Exit");
 
 
-    public static final Menu SuperAdmin = new Menu("Süper Admin Menüsü", SuperAdminMenuContent.options, "Go back");
-    public static final Menu SuperAdminViewHistory = new Menu("Etkinlik Geçmişi Menüsü", SuperAdminViewHistoryMenuContent.options, "Go back");
-    public static final Menu SuperAdminViewStaff = new Menu("Çalışan Kayıtları Menüsü", SuperAdminViewStaffMenuContent.options, "Go back");
-    public static final Menu SuperAdminBlacklist = new Menu("Blacklist Menüsü", SuperAdminBlacklistMenuContent.options, "Go back");
-    public static final Menu SuperAdminWhitelist = new Menu("Whitelist Menüsü",
-            SuperAdminWhitelistMenuContent.options, "Go back");
+    public static final Menu SuperAdmin = new Menu("Super Admin Menu", SuperAdminMenuContent.options, "Go back");
+    public static final Menu SuperAdminViewHistory = new Menu("Activity History Menu", SuperAdminViewHistoryMenuContent.options, "Go back");
+    public static final Menu SuperAdminViewStaff = new Menu("Staff Members Menu", SuperAdminViewStaffMenuContent.options, "Go back");
+    public static final Menu SuperAdminBlacklist = new Menu("Blacklist Menu", SuperAdminBlacklistMenuContent.options, "Go back");
 
 
 

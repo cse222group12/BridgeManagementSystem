@@ -102,6 +102,15 @@ public class JGraph<N,E> implements Graph<N,E> {
          }
     }
 
+    /**
+     * Get the node in this graph that is equal to the given node.
+     * @param node  Equal node.
+     * @return      The node in this graph that is equal to given node.
+     */
+    public N getNode(N node) {
+        return node_list.get(node).name;
+    }
+
     //@param: N to    | the label of the node the edge is going to
     //@param: N from  | the label of the node the edge is coming from
     //@param: E label | the label of the edge//@returns: A HashSet of the edge labels of all edges in the graph

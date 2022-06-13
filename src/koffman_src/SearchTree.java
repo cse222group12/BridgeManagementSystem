@@ -4,7 +4,7 @@ package koffman_src;
  * */
 
 public interface SearchTree < E
-        extends Comparable < E >> {
+        extends Comparable < ? super E >> {
     /** Inserts item where it belongs in the tree.
      @param item The item to be inserted
      @return true If the item is inserted, false if the

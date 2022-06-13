@@ -10,7 +10,7 @@ public  class Plate implements Comparable<Plate> {
     String plate;
 
     public Plate(String plate){
-        this.plate = plate;
+        this.plate = plate.toUpperCase();
     }
 
     public String getPlate() {
@@ -32,12 +32,23 @@ public  class Plate implements Comparable<Plate> {
         return this.plate.compareTo(o.plate);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Plate) return plate.equals(((Plate) obj).plate);
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return plate;
+    }
+
     /**
      * The plate class for vehicles that were constructed in Turkey, so their plate format is as in Turkey's.
      */
     public static class Turkey extends Plate {
         // Regex to validate plate
-        private static final Function<String, Boolean> validator = plate -> plate.matches("^(0[1-9]|[1-7]\\d|8[01])([A-Z]\\d{4,5}|[A-Z]{2}\\d{3,4}|[A-Z]{3}\\d{2,3})$");
+        private static final Function<String, Boolean> validator = plate -> plate.toUpperCase().matches("^(0[1-9]|[1-7]\\d|8[01])([A-Z]\\d{4,5}|[A-Z]{2}\\d{3,4}|[A-Z]{3}\\d{2,3})$");
 
         /**
          * Constructs plate with given <code>String</code>.
@@ -50,6 +61,15 @@ public  class Plate implements Comparable<Plate> {
         @Override
         public int compareTo(Plate o) {
             return this.plate.compareTo(o.plate);
+        }
+
+        /**
+         * Check if given plate is a valid Turkish plate.
+         * @param plate Plate to be checked.
+         * @return      <code>true</code> if given plate is a valid Turkish plate, <code>false</code> otherwise.
+         */
+        public static boolean isValid(String plate) {
+            return validator.apply(plate.toUpperCase());
         }
     }
 }

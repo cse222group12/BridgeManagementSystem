@@ -3,7 +3,7 @@ package bms_src;
 /**
  * An abstract class to classify base user`s class
  */
-public abstract class Person {
+public abstract class Person implements Comparable<Person> {
 
     String label; // is this person a user or toll clerk or officer etc...
 
@@ -43,5 +43,15 @@ public abstract class Person {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return username.compareTo(o.username);
+    }
+
+    @Override
+    public String toString() {
+        return username;
     }
 }

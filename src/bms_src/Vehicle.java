@@ -143,4 +143,10 @@ public class Vehicle implements IVehicle, Comparable<Vehicle> {
     public int compareTo(Vehicle o) {
         return this.getPlate().plate.compareTo(o.getPlate().plate);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Vehicle) return plate.equals(((Vehicle) obj).plate);
+        return false;
+    }
 }

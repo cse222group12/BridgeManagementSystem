@@ -7,7 +7,7 @@ import java.io.*;
  */
 
 public class BinarySearchTree < E
-        extends Comparable < E >>
+        extends Comparable < ? super E >>
         extends BinaryTree < E >
         implements SearchTree < E > {
     // Data Fields
