@@ -8,13 +8,13 @@ import java.util.Iterator;
 public class Vehicle implements IVehicle, Comparable<Vehicle> {
 
     private Plate plate;
-    private String ownerId;
+    private String username;
     private Type type;
     private KWPriorityQueue<Penalty> penalties;
 
-    public Vehicle(Plate plate, String ownerId, Type type){
+    public Vehicle(Plate plate, String username, Type type){
         this.plate = plate;
-        this.ownerId = ownerId;
+        this.username = username;
         this.type = type;
         penalties = new KWPriorityQueue<>();
     }
@@ -53,8 +53,8 @@ public class Vehicle implements IVehicle, Comparable<Vehicle> {
      *
      * @return Owner of this vehicle.
      */
-    public String getOwnerId() {
-        return ownerId;
+    public String getUsername() {
+        return username;
     }
 
     /**
@@ -89,10 +89,10 @@ public class Vehicle implements IVehicle, Comparable<Vehicle> {
         // This function shouldn't exist. Delete it.
     }
 
-    public void setOwnerId(String ownerId) throws Exception {
+    public void setUsername(String username) throws Exception {
         // TODO:
         // Think about the "user not found" exception thing.
-        this.ownerId = ownerId;
+        this.username = username;
     }
 
     @Override
@@ -117,7 +117,7 @@ public class Vehicle implements IVehicle, Comparable<Vehicle> {
     public void addPenalty(double amount){
         //penalty eklendiginde kisi uzerine de direktmen
         //eklenmeli
-        penalties.add(new Penalty(getOwnerId(),
+        penalties.add(new Penalty(getUsername(),
                 getPlate().plate,amount));
     }
 
@@ -136,7 +136,7 @@ public class Vehicle implements IVehicle, Comparable<Vehicle> {
     public void addPenalty(double amount, String reason){
         //penalty eklendiginde kisi uzerine de direktmen
         //eklenmeli
-        penalties.add(new Penalty(getOwnerId(),getPlate().plate,amount,reason));
+        penalties.add(new Penalty(getUsername(),getPlate().plate,amount,reason));
     }
 
     @Override

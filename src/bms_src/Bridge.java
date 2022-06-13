@@ -7,6 +7,11 @@ import java.util.Iterator;
 
 public class Bridge {
     private String name;
+<<<<<<< Updated upstream
+=======
+    private BinarySearchTree<Staff> workers;
+    private SkipList<Date,Pass> passHistory;
+>>>>>>> Stashed changes
 
     // NOTE:
     // Changed binary tree to bst
@@ -40,9 +45,33 @@ public class Bridge {
     }
 
     public void addPass(Vehicle v){
+<<<<<<< Updated upstream
         Pass pass = new Pass(v);
         passHistory.add(pass.getCheckInTime(), pass);
+=======
+        Pass p = new Pass(v);
+        passHistory.add(p.getCheckInTime(), p);
+>>>>>>> Stashed changes
     }
+
+    public int getPassTime(){
+        return passHistory.size();
+    }
+
+    /**
+     * A method that get a pass
+     * from passHistory
+     * @param date is checkin time
+     * @return pass given date
+     */
+
+    public Pass getPass(Date date){
+        return passHistory.get(date);
+    }
+
+
+
+
 
     public void printAllPassHistory(){
         for (Date date : passHistory) {

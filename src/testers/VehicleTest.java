@@ -20,7 +20,7 @@ public class VehicleTest {
 
         v.getPenalties();
 
-        System.out.println(v.getOwnerId());
+        System.out.println(v.getUsername());
 
     }
 }
