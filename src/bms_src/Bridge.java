@@ -1,5 +1,6 @@
 package bms_src;
 
+import data_structures.BinarySearchTree;
 import data_structures.SkipList;
 
 import java.util.Date;
@@ -7,15 +8,15 @@ import java.util.Iterator;
 
 public class Bridge {
     private String name;
-<<<<<<< Updated upstream
-=======
+//<<<<<<< Updated upstream
+//=======
     private BinarySearchTree<Staff> workers;
     private SkipList<Date,Pass> passHistory;
->>>>>>> Stashed changes
+//>>>>>>> Stashed changes
 
     // NOTE:
     // Changed binary tree to bst
-    private data_structures.BinarySearchTree<Staff> workers;
+//    private BinarySearchTree<Staff> workers;
 
     // TODO:
     // CONSIDER A BETTER DATA STRUCTURE!!!!
@@ -26,12 +27,12 @@ public class Bridge {
     // ---consider it
 
     // @see SuperAdminViewHistoryMenuContent::printActivity
-    private SkipList<Date, Pass> passHistory;
+//    private SkipList<Date, Pass> passHistory;
 
     public Bridge(String name) {
         this.name = name;
         this.passHistory = new SkipList<>();
-        this.workers = new data_structures.BinarySearchTree<>();
+        this.workers = new BinarySearchTree<>();
     }
 
     //passHistory SkipList
@@ -45,13 +46,13 @@ public class Bridge {
     }
 
     public void addPass(Vehicle v){
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
         Pass pass = new Pass(v);
         passHistory.add(pass.getCheckInTime(), pass);
-=======
+//=======
         Pass p = new Pass(v);
         passHistory.add(p.getCheckInTime(), p);
->>>>>>> Stashed changes
+//>>>>>>> Stashed changes
     }
 
     public int getPassTime(){
