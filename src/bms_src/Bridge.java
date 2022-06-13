@@ -12,6 +12,8 @@ public class Bridge {
 //=======
     private BinarySearchTree<Staff> workers;
     private SkipList<Date,Pass> passHistory;
+
+    private double bridgeLength;
 //>>>>>>> Stashed changes
 
     // NOTE:
@@ -33,7 +35,17 @@ public class Bridge {
         this.name = name;
         this.passHistory = new SkipList<>();
         this.workers = new BinarySearchTree<>();
+        this.bridgeLength = 3.2;
     }
+
+    public Bridge(String name, double bridgeLength) {
+        this.name = name;
+        this.passHistory = new SkipList<>();
+        this.workers = new BinarySearchTree<>();
+        this.bridgeLength = bridgeLength;
+    }
+
+
 
     //passHistory SkipList
 
@@ -135,6 +147,14 @@ public class Bridge {
      */
     public String showAllWorkers(){
         return workers.toString();
+    }
+
+    public double getBridgeLength() {
+        return bridgeLength;
+    }
+
+    public void setBridgeLength(double bridgeLength) {
+        this.bridgeLength = bridgeLength;
     }
 
     //Getters & setters
