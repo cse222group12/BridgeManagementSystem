@@ -153,5 +153,31 @@ public class User extends Person implements IUser {
         return value >= -threshold && value <= threshold;
     }
 
+    /**
+     * Get the debt
+     * @return debt
+     */
+    public double getDebt()
+    {
+        return debt;
+    }
+
+    /**
+     * Set the debt
+     * @param newDebt
+     */
+    public void setDebt(double newDebt)
+    {
+        debt=newDebt;
+    }
+
+    /**
+     * Get the vehicles
+     * @return vehicles
+     */
+    public SkipList<Plate,Vehicle> getVehicles()
+    {
+        return vehicles;
+    }
 
 }

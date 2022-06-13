@@ -8,15 +8,17 @@ public interface IOfficer {
     /**
      * Send penalty to a user which is actually guilty driver
      * @param user User reference
-     * @param penalty Penalty that is going to user
      */
-    void sendPenalty(User user, Penalty penalty);
+    void sendPenalty(Penalty penalty);
 
     /**
      * If somethings goes wrong edit the penalty
-     * @param penalty Penalty reference
+     *
+     * @param oldPenalty Previous Penalty reference
+     * @param newPenalty New Penalty reference
+     * 
      */
-    void editPenalty(Penalty penalty);
+    void editPenalty(Penalty oldPenalty,Penalty newPenalty);
 
     /**
      * Get the current speed limit

@@ -121,12 +121,26 @@ public class Vehicle implements IVehicle, Comparable<Vehicle> {
                 getPlate().plate,amount));
     }
 
-    public void getPenalties(){
+
+    /**
+     * A method that prints penalties of vehicle
+     */
+    public void printPenalties(){
         Iterator<Penalty> iterator=  penalties.iterator();
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
     }
+
+
+    /**
+     * Get the penalties
+     * @return penalties
+     */
+    public KWPriorityQueue getPenalties(){
+        return penalties;
+    }
+
 
     /**
      * A method that adds penalties to vehicle

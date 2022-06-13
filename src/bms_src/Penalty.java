@@ -11,7 +11,7 @@ public class Penalty  implements IPenalty, Comparable<Penalty> {
     private final String username;
     private final String plateNumber;
     private Date penalty_date;
-    private double debt = 0;
+    private double debt = 90;
     private String reason = "Traffic rules violation";
 
     //Constructors

@@ -13,7 +13,7 @@ import java.util.*;
 
 public class BMS extends DataBase implements IBMS {
     public static Person currentUser;
-    protected static HashtableChain<String,Person> persons; //TODO it could be private, protected for testing
+    protected static HashtableChain<String,Person> persons=new HashtableChain<>();; //TODO it could be private, protected for testing
 
     protected static JGraph<City,Integer> cities;
 
@@ -40,6 +40,9 @@ public class BMS extends DataBase implements IBMS {
         persons.put(officer.getUsername(),officer);
         persons.put(admin.getUsername(),admin);
 
+
+
+/* 
         //-----------------------------SuperAdmin Tests
         MainSystem.addBlackList(new Plate.Turkey("54ERE123"));
 
@@ -72,7 +75,7 @@ public class BMS extends DataBase implements IBMS {
         }
 
         //-----------------------------SuperAdmin Tests
-
+*/
         cities.addNode(new City("Istanbul"));
         Menu.push(Menu.Welcome);
 
