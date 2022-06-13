@@ -3,7 +3,7 @@ package bms_src;
 /**
  * An abstract class to classify base user`s class
  */
-public abstract class Person {
+public class Person {
 
     String label; // is this person a user or toll clerk or officer etc...
 
@@ -19,6 +19,21 @@ public abstract class Person {
     public Person(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public Person(String username){
+        this.username = username;
+    }
+
+    /**
+     * A method that compares persons by name
+     * @param o other person
+     * @return 0 if equal
+     *          1 if this.username>otherone`s
+     *          else -1
+     */
+    public int compareTo(Person o) {
+        return this.getUsername().compareTo(o.getUsername());
     }
 
     public String getLabel() {
@@ -43,5 +58,11 @@ public abstract class Person {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return "label=" + label + "\t" +
+                "username='" + username ;
     }
 }

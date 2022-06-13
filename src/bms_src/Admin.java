@@ -65,4 +65,9 @@ public class Admin extends Staff implements IAdmin  {
     public void setTollByVehicleType(String vehicleType, int toll) {
 
     }
+
+    @Override
+    public int compareTo(Staff o) {
+        return this.getUsername().compareTo(o.getUsername());
+    }
 }

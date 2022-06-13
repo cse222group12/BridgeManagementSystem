@@ -11,7 +11,7 @@ public class BMS extends DataBase implements IBMS {
     public static Person currentUser;
     protected static HashtableChain<String,Person> persons; //TODO it could be private, protected for testing
 
-    JGraph<City,Integer> cities;
+    protected JGraph<City,Integer> cities;
 
     AVLTree<Vehicle> blackListVehicles;
 
@@ -34,6 +34,7 @@ public class BMS extends DataBase implements IBMS {
         persons.put(tollClerk.getUsername(),tollClerk);
         persons.put(officer.getUsername(),officer);
         persons.put(admin.getUsername(),admin);
+        cities.addNode(new City("Istanbul"));
         Menu.push(Menu.Welcome);
 
     }

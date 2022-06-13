@@ -2,7 +2,7 @@ package bms_src;
 
 import bms_interface.IStaff;
 
-public abstract class Staff extends Person implements IStaff {
+public abstract class Staff extends Person implements IStaff, Comparable<Staff> {
 
     public Staff(String staff_name, String id_number) {
         super(staff_name, id_number);
@@ -47,4 +47,18 @@ public abstract class Staff extends Person implements IStaff {
     public void setBranch(String branch) {
 
     }
+
+    /**
+     * A method that compares staff`s by name
+     * @param o other person
+     * @return 0 if equal
+     *          1 if this.username>otherone`s
+     *          else -1
+     */
+    public int compareTo(Staff o) {
+        return this.getUsername().compareTo(o.getUsername());
+    }
+
+
+
 }
