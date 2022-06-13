@@ -5,6 +5,18 @@ import bms_interface.IPass;
 import java.util.Date;
 
 public class Pass implements IPass {
+    private Date checkIn;
+    private Date checkOut;
+    private Vehicle vehicle;
+
+    public Pass(Vehicle vehicle){
+        checkIn = new Date();
+        this.vehicle = vehicle;
+    }
+
+    public void setCheckOut(){
+        checkOut = new Date();
+    }
     /**
      * Get the vehicle
      *
@@ -12,7 +24,7 @@ public class Pass implements IPass {
      */
     @Override
     public Vehicle getVehicle() {
-        return null;
+        return vehicle;
     }
 
     /**
@@ -22,7 +34,7 @@ public class Pass implements IPass {
      */
     @Override
     public Date getCheckInTime() {
-        return null;
+        return checkIn;
     }
 
     /**
@@ -32,7 +44,7 @@ public class Pass implements IPass {
      */
     @Override
     public Date getCheckOutTime() {
-        return null;
+        return checkOut;
     }
 
     /**
@@ -42,7 +54,7 @@ public class Pass implements IPass {
      */
     @Override
     public void setVehicle(Vehicle vehicle) {
-
+        this.vehicle = vehicle;
     }
 
     /**
@@ -52,7 +64,7 @@ public class Pass implements IPass {
      */
     @Override
     public void setCheckInTime(Date checkInTime) {
-
+        checkIn = checkInTime;
     }
 
     /**
@@ -62,6 +74,6 @@ public class Pass implements IPass {
      */
     @Override
     public void setCheckOutTime(Date checkOutTime) {
-
+        checkOut = checkOutTime;
     }
 }

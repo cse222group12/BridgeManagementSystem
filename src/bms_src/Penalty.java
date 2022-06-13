@@ -2,32 +2,50 @@ package bms_src;
 
 import bms_interface.IPenalty;
 
+import java.util.Date;
+
 public class Penalty  implements IPenalty, Comparable<Penalty> {
 
 
     //datafields
-    private final String driverId;
+    private final String username;
     private final String plateNumber;
+    private Date penalty_date;
     private double debt = 0;
     private String reason = "Traffic rules violation";
 
     //Constructors
-    public Penalty(String driverId, String plateNumber) {
-        this.driverId = driverId;
+    public Penalty(String username, String plateNumber) {
+        this.username = username;
         this.plateNumber = plateNumber;
+        penalty_date = new Date();
     }
 
-    public Penalty(String driverId,String plateNumber,double debt) {
-        this.driverId = driverId;
+    public Penalty(String username,String plateNumber,double debt) {
+        this.username = username;
         this.plateNumber = plateNumber;
         this.debt = debt;
+        penalty_date = new Date();
     }
 
-    public Penalty(String driverId,String plateNumber,double debt, String reason) {
-        this.driverId = driverId;
+    public Penalty(String username,String plateNumber,double debt, String reason) {
+        this.username = username;
         this.plateNumber = plateNumber;
         this.debt = debt;
         this.reason = reason;
+        penalty_date = new Date();
+    }
+
+    public String getPlateNumber() {
+        return plateNumber;
+    }
+
+    public Date getPenalty_date() {
+        return penalty_date;
+    }
+
+    public void setPenalty_date(Date penalty_date) {
+        this.penalty_date = penalty_date;
     }
 
     /**
@@ -56,8 +74,8 @@ public class Penalty  implements IPenalty, Comparable<Penalty> {
      * @return guilty driver
      */
     @Override
-    public String getDriverID() {
-        return driverId;
+    public String getUsername() {
+        return username;
     }
 
     /**
@@ -83,7 +101,7 @@ public class Penalty  implements IPenalty, Comparable<Penalty> {
     @Override
     public String toString() {
         return "Penalty{" +
-                "driverId='" + driverId + '\'' +
+                "username='" + username + '\'' +
                 ", debt=" + debt +
                 ", reason='" + reason + '\'' +
                 '}';

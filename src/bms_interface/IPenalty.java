@@ -20,7 +20,7 @@ public interface IPenalty {
      * Get the guilty driver
      * @return guilty driver
      */
-    String getDriverID();
+    String getUsername();
 
     /**
      * Set the reason

@@ -4,6 +4,8 @@ import data_structures.BinarySearchTree;
 import data_structures.BinaryTree;
 import data_structures.SkipList;
 
+import java.util.Iterator;
+
 public class Bridge {
     private String name;
     private BinarySearchTree<Staff> workers;
@@ -16,6 +18,30 @@ public class Bridge {
         passHistory = new SkipList<>();
     }
 
+    //passHistory SkipList
+
+    /**
+     * Add pass by Pass classes object
+     * @param pass object to add skiplist
+     */
+    public void addPass(Pass pass){
+        passHistory.add(pass.getVehicle().getPlate(), pass);
+    }
+
+    public void addPass(Vehicle v){
+        passHistory.add(v.getPlate(), new Pass(v));
+    }
+
+    public void printAllPassHistory(){
+        Iterator iter = passHistory.iterator();
+        while (iter.hasNext()){
+            System.out.println(iter.next());
+        }
+    }
+
+
+
+    //Workers
     /**
      * Add new staff to workers tree
      * @param newStaff
@@ -52,11 +78,20 @@ public class Bridge {
     }
 
     /**
+     * A method that get worker from
+     * Workers datastructures which is tree
+     * @param user is represent worker
+     * @return a Staff
+     */
+    public Staff getAWorker(Staff user){
+        return workers.find( user);
+    }
+
+    /**
      * A method that shows all workers
      * in the bridge
-     * @return nothing
+     * @return names & labels of the workers
      */
-
     public String showAllWorkers(){
         return workers.toString();
     }
