@@ -4,6 +4,9 @@ import bms_interface.IVehicle;
 import bms_src.*;
 import bms_src.Menu;
 import data_structures.SkipList;
+
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public abstract class UserMenuContent {
@@ -32,8 +35,10 @@ public abstract class UserMenuContent {
     }
 
     private static void showBalance() {
+        DecimalFormat df = new DecimalFormat("0.00");
         User currUser = (User) BMS.currentUser;
-        System.out.println("Your balance: " + currUser.showBalance() + "$");
+        df.setRoundingMode(RoundingMode.DOWN);
+        System.out.println("Your balance: " + df.format(currUser.showBalance()) + "$");
         System.out.print("Do you want to add some money?(y/n) ");
         Scanner sc = new Scanner(System.in);
         String option = sc.next();

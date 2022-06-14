@@ -27,19 +27,30 @@ public class BMS extends DataBase implements IBMS {
         cities = new JGraph<>();
         currentUser = null;
 
-        SuperAdmin superAdmin = new SuperAdmin("GOD", "123");
-        User user1 = new User("bygt","0000");
+        SuperAdmin superAdmin = new SuperAdmin("presidentobama", "991");
+        User user1 = new User("dumbuser","0000");
         user1.addToBalance(112.12);
 
-        TollClerk tollClerk = new TollClerk("gisememur123","4141");
-        Officer officer = new Officer("mesutkomiser", "3434");
+        TollClerk tollClerk = new TollClerk("tcmahmut","4141");
+        Officer officer = new Officer("jakeperalta", "3434");
         Admin admin = new Admin("a","a");
+
+        user1.addVehicle(new Vehicle(new Plate("16BYGT34"), "dumbuser", IVehicle.Type.Automobile));
+        user1.addVehicle(new Vehicle(new Plate("16BYGT35"), "dumbuser", IVehicle.Type.Truck));
+        user1.addVehicle(new Vehicle(new Plate("16BYGT33"), "dumbuser", IVehicle.Type.Bus));
+
 
         persons.put(superAdmin.getUsername(),superAdmin);
         persons.put(user1.getUsername(), user1);
         persons.put(tollClerk.getUsername(),tollClerk);
         persons.put(officer.getUsername(),officer);
         persons.put(admin.getUsername(),admin);
+        officer.sendPenalty(new Penalty("dumbuser", "16BYGT34"));
+        officer.sendPenalty(new Penalty("dumbuser", "16BYGT33"));
+        officer.sendPenalty(new Penalty("dumbuser", "16BYGT35"));
+
+
+
 
 
         //

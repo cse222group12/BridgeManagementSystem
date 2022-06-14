@@ -1,9 +1,11 @@
 package bms_src;
 
 import bms_interface.IUser;
+import data_structures.KWPriorityQueue;
 import data_structures.SkipList;
 
 import java.util.Iterator;
+import java.util.Scanner;
 
 
 public class User extends Person implements IUser {
@@ -192,10 +194,32 @@ public class User extends Person implements IUser {
     }
 
     public void getAllPenalties(){
+        User user = (User)BMS.currentUser;
         if(vehicles.size() != 0){
             for (Plate vehicle : vehicles){
                 System.out.println( vehicles.get(new Plate(vehicle.getPlate())).getPlate() + "  " + vehicles.get(new Plate(vehicle.getPlate())).getVehicleType() );
-                vehicles.get(new Plate(vehicle.getPlate())).getPenalties();
+                KWPriorityQueue<Penalty> penalties = vehicles.get(new Plate(vehicle.getPlate())).getPenalties();
+                if(penalties.peek() != null){
+                    System.out.println("\tDebt: " + penalties.peek().getDebt() + "$\n\tReason: " + penalties.peek().getReason() + "\n\tDate: " + penalties.peek().getPenalty_date());
+                    Scanner sc = new Scanner(System.in);
+                    String opt = null;
+                    System.out.println("Do you want to pay this penalty?(y/n)");
+                    opt = sc.next();
+                    if(opt.equalsIgnoreCase("Y")){
+                        assert penalties.peek() != null;
+                        var debt = penalties.peek().getDebt();
+                        if(user.balance <= debt){
+                            System.out.println("You don't have enough money for pay this. Please add some money to your account.");
+                        }
+                        else{
+                            penalties.poll();
+                            user.addToBalance(debt*-1);
+                        }
+                    }
+                }
+                else {
+                    System.out.println("\tThere is no penalty for this vehicle.\n");
+                }
             }
         }
         else{

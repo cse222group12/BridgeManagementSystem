@@ -24,7 +24,6 @@ public class Officer extends Staff implements IOfficer {
         try{
 
         User user = (User) BMS.getPerson(penalty.getUsername());
-
         Vehicle vehicle=(user.getVehicles()).get(new Plate(penalty.getPlateNumber()));
 
         vehicle.addPenalty(penalty);
