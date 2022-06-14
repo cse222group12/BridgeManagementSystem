@@ -137,7 +137,7 @@ public class Vehicle implements IVehicle, Comparable<Vehicle> {
      * Get the penalties
      * @return penalties
      */
-    public KWPriorityQueue getPenalties(){
+    public KWPriorityQueue<Penalty> getPenalties(){
         return penalties;
     }
 

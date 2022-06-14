@@ -72,7 +72,7 @@ public abstract class UserVehiclesMenuContent {
 
     private static void listVehicles() {
         User currUser = (User) BMS.currentUser;
-        currUser.showAllPlates();
+        currUser.getAllVehicles();
     }
 
     public static final Pair<String, Runnable>[] options = Pair.of(optionHeaders, optionRunnables);

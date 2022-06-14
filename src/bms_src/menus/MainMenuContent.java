@@ -45,7 +45,6 @@ public abstract class MainMenuContent extends BMS {
         password = sc.next();
 
        BMS.currentUser = persons.get(username);
-
        if(BMS.currentUser == null){
            System.out.println("User not found!");
        }

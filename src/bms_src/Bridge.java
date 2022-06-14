@@ -11,7 +11,10 @@ public class Bridge {
     private BinarySearchTree<Staff> workers;
     private SkipList<Date,Pass> passHistory;
 
+
     private double bridgeLength;
+    private double price = 100;
+//>>>>>>> Stashed changes
 
     // NOTE:
     // Changed binary tree to bst
@@ -43,7 +46,13 @@ public class Bridge {
     }
 
 
-
+    /**
+     * A method that return size of the pass
+     * @return count of the pass
+     */
+    public int passCount(){
+        return passHistory.size();
+    }
     //passHistory SkipList
 
     /**
@@ -184,5 +193,23 @@ public class Bridge {
     public boolean equals(Object obj) {
         if (obj instanceof Bridge) return name.equals(((Bridge) obj).name);
         else return false;
+    }
+
+    public String toString() {
+        return "Bridge{" +
+                "name='" + name + '\'' +
+                ", workers=" + workers +
+                ", passHistory=" + passHistory +
+                ", bridgeLength=" + bridgeLength +
+                ", price=" + this.price +"$" +
+                '}';
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

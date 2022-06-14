@@ -6,9 +6,9 @@ import bms_src.Pair;
 
 public abstract class AdminMenuContent {
     private static final String[] optionHeaders = new String[]{
-            "Etkinlik Gecmisi",
-            "Calisanlar",
-            "Bilet Fiyatlari "
+            "View Activity History",
+            "View Staff Members",
+            "Toll Price "
         };
 
     private static final Runnable[] optionRunnables = new Runnable[]{
