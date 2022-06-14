@@ -24,14 +24,14 @@ public class Penalty  implements IPenalty, Comparable<Penalty> {
     public Penalty(String username,String plateNumber,double debt) {
         this.username = username;
         this.plateNumber = plateNumber;
-        this.debt = debt;
+        if(debt>0) this.debt = debt;
         penalty_date = new Date();
     }
 
     public Penalty(String username,String plateNumber,double debt, String reason) {
         this.username = username;
         this.plateNumber = plateNumber;
-        this.debt = debt;
+        if(debt>0) this.debt = debt;
         this.reason = reason;
         penalty_date = new Date();
     }

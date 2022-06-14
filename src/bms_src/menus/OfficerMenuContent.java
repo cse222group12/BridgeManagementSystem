@@ -169,7 +169,7 @@ public abstract class OfficerMenuContent
 
                 Iterator<Penalty> iter= (user.getVehicles().get(new Plate(plateNum))).getPenalties().iterator();
            
-                while(iter.hasNext() && penaltyNum>0)
+                for(int i=penaltyNum;iter.hasNext() && i>0;i--)
                   oldPenalty=iter.next();
 
                 System.out.println("\nEnter the new penalty details.");

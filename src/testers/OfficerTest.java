@@ -56,7 +56,7 @@ public class OfficerTest {
 
         System.out.println("\nTotal debt of " + user.getUsername() + " : " + user.getDebt());
 
-        Penalty p6 = new Penalty(user.getUsername(), "32mi51", 50);
+        Penalty p6 = new Penalty(user.getUsername(), "32mi51", -50);
 
         officer.editPenalty(p5, p6);
         officer.editPenalty(p4, p0);
