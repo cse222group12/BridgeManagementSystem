@@ -40,6 +40,9 @@ public class BMS extends DataBase implements IBMS {
         user1.addVehicle(new Vehicle(new Plate("16BYGT33"), "dumbuser", IVehicle.Type.Bus));
 
 
+
+
+
         persons.put(superAdmin.getUsername(),superAdmin);
         persons.put(user1.getUsername(), user1);
         persons.put(tollClerk.getUsername(),tollClerk);

@@ -81,8 +81,11 @@ public class User extends Person implements IUser {
      * @throws Exception throws exception if the remove operation successfully or not
      */
     public void removeVehicle(Plate plate) {
-
-        vehicles.remove(plate);
+        try{
+            vehicles.remove(plate);
+        }
+        catch (Exception NullPointerException){
+        }
     }
 
 
