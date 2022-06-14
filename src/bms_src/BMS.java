@@ -33,13 +33,25 @@ public class BMS extends DataBase implements IBMS {
 
         TollClerk tollClerk = new TollClerk("gisememur123","4141");
         Officer officer = new Officer("mesutkomiser", "3434");
-        Admin admin = new Admin("bursa","12344");
+        Admin admin = new Admin("a","a");
+
         persons.put(superAdmin.getUsername(),superAdmin);
         persons.put(user1.getUsername(), user1);
         persons.put(tollClerk.getUsername(),tollClerk);
         persons.put(officer.getUsername(),officer);
         persons.put(admin.getUsername(),admin);
 
+
+        //
+        City Istanbul = new City("Istanbul");
+        Bridge fsm = new Bridge("FSM", 1000);
+        Bridge yss = new Bridge("YSS", 3000);
+        Istanbul.addBridge(fsm);
+        Istanbul.addBridge(yss);
+        admin.setCity_name("Istanbul");
+        Istanbul.setAdmin(admin);
+        cities.addNode(Istanbul);
+        //
 
 
 /* 
@@ -147,4 +159,5 @@ public class BMS extends DataBase implements IBMS {
     public static Person getPerson(String id){
         return persons.get(id);
     }
+
 }

@@ -13,7 +13,9 @@ public class Bridge {
     private BinarySearchTree<Staff> workers;
     private SkipList<Date,Pass> passHistory;
 
+
     private double bridgeLength;
+    private double price = 100;
 //>>>>>>> Stashed changes
 
     // NOTE:
@@ -46,7 +48,13 @@ public class Bridge {
     }
 
 
-
+    /**
+     * A method that return size of the pass
+     * @return count of the pass
+     */
+    public int passCount(){
+        return passHistory.size();
+    }
     //passHistory SkipList
 
     /**
@@ -180,5 +188,24 @@ public class Bridge {
 
     public void setPassHistory(SkipList<Date, Pass> passHistory) {
         this.passHistory = passHistory;
+    }
+
+    @Override
+    public String toString() {
+        return "Bridge{" +
+                "name='" + name + '\'' +
+                ", workers=" + workers +
+                ", passHistory=" + passHistory +
+                ", bridgeLength=" + bridgeLength +
+                ", price=" + this.price +"$" +
+                '}';
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
