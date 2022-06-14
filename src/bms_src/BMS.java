@@ -49,12 +49,6 @@ public class BMS extends DataBase implements IBMS {
         officer.sendPenalty(new Penalty("dumbuser", "16BYGT33"));
         officer.sendPenalty(new Penalty("dumbuser", "16BYGT35"));
 
-
-<<<<<<< HEAD
-=======
-
-
-
         //
         City Istanbul = new City("Istanbul");
         Bridge fsm = new Bridge("FSM", 1000);
@@ -67,8 +61,6 @@ public class BMS extends DataBase implements IBMS {
         //
 
 
-/* 
->>>>>>> ea91683fd5c3dc4cc87190975558377a437e2907
         //-----------------------------SuperAdmin Tests
         MainSystem.addBlackList(new Plate.Turkey("54ERE123"));
 
