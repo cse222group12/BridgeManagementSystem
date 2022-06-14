@@ -144,7 +144,7 @@ public class Menu {
     public static final Menu SuperAdminViewHistory = new Menu("Activity History Menu", SuperAdminViewHistoryMenuContent.options, "Go back");
     public static final Menu SuperAdminViewStaff = new Menu("Staff Members Menu", SuperAdminViewStaffMenuContent.options, "Go back");
     public static final Menu SuperAdminBlacklist = new Menu("Blacklist Menu", SuperAdminBlacklistMenuContent.options, "Go back");
-
+    public static final Menu SuperAdminViewCitiesAndBridges = new Menu("Cities Menu", SuperAdminViewCitiesAndBridgesMenuContent.options, "Go back");
 
 
     public static final Menu User = new Menu("User menu:", UserMenuContent.options, "Go back");

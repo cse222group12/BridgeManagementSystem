@@ -8,13 +8,10 @@ import java.util.Iterator;
 
 public class Bridge {
     private String name;
-//<<<<<<< Updated upstream
-//=======
     private BinarySearchTree<Staff> workers;
     private SkipList<Date,Pass> passHistory;
 
     private double bridgeLength;
-//>>>>>>> Stashed changes
 
     // NOTE:
     // Changed binary tree to bst
@@ -58,13 +55,8 @@ public class Bridge {
     }
 
     public void addPass(Vehicle v){
-//<<<<<<< Updated upstream
         Pass pass = new Pass(v);
         passHistory.add(pass.getCheckInTime(), pass);
-//=======
-        Pass p = new Pass(v);
-        passHistory.add(p.getCheckInTime(), p);
-//>>>>>>> Stashed changes
     }
 
     public int getPassTime(){
@@ -100,6 +92,7 @@ public class Bridge {
      * @param newStaff
      */
     public void addWorker(Staff newStaff){
+        MainSystem.addPerson(newStaff);
         workers.add(newStaff);
     }
 
@@ -180,5 +173,16 @@ public class Bridge {
 
     public void setPassHistory(SkipList<Date, Pass> passHistory) {
         this.passHistory = passHistory;
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Bridge) return name.equals(((Bridge) obj).name);
+        else return false;
     }
 }

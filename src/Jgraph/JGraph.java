@@ -108,7 +108,9 @@ public class JGraph<N,E> implements Graph<N,E> {
      * @return      The node in this graph that is equal to given node.
      */
     public N getNode(N node) {
-        return node_list.get(node).name;
+        Node<N> nodeNode = node_list.get(node);
+        if (nodeNode == null) return null;
+        else return nodeNode.name;
     }
 
     //@param: N to    | the label of the node the edge is going to

@@ -35,12 +35,21 @@ public class MainSystem {
         cities.addNode(aCity);
     }
 
+    public static void removeCity(String cityName) {
+        // TODO:
+        // Implement this......
+    }
+
     public static Iterator<City> getCityIterator() {
         return cities.getNodes().iterator();
     }
 
     public static int getNumCity() {
         return cities.size();
+    }
+
+    public static boolean cityExists(String cityName) {
+        return cities.contains(new City(cityName));
     }
 
     public static City getCity(String cityName) {
@@ -53,7 +62,7 @@ public class MainSystem {
      * @return person
      */
     public static Person addPerson(Person person){
-        return persons.put(person.getUsername(),person);
+        return persons.put(person.getUsername(), person);
     }
 
     /**

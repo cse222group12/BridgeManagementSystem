@@ -54,10 +54,11 @@ public abstract class SuperAdminViewHistoryMenuContent {
         printActivity((Date.from(Instant.now().minus(30, ChronoUnit.DAYS))));
     }
 
-     private static void printActivity(Date since) {
-        printActivity(since,new Date());
-     }
+    private static void printActivity(Date since) {
+    printActivity(since,new Date());
+    }
 
+    // Theta(n) where n is the total number of activity
     private static void printActivity(Date start, Date end) {
         Iterator<City> cityIterator = MainSystem.getCityIterator();
         while (cityIterator.hasNext()) {
@@ -133,6 +134,7 @@ public abstract class SuperAdminViewHistoryMenuContent {
 
         System.out.println("Current vehicle types: (+: Included, -: Excluded)");
 
+        // Theta(n) where n is number of vehicle types
         for (IVehicle.Type type : IVehicle.Type.values()) {
             System.out.print(vehicleTypes.contains(type) ? "+" : "-");
             String typeName = type.toString();
@@ -140,6 +142,7 @@ public abstract class SuperAdminViewHistoryMenuContent {
             typeNames.put(typeName, type);
         }
 
+        // All constant time below here
         System.out.println("Enter a vehicle type to change its state:");
         while (userInput.equals("\n")) {
             userInput = scanner.nextLine();
@@ -170,8 +173,8 @@ public abstract class SuperAdminViewHistoryMenuContent {
 
         System.out.println("Current cities: (+: Included, -: Excluded)");
 
+        // Theta(n) where n is number of cities
         Iterator<City> cityIterator = MainSystem.getCityIterator();
-
         while (cityIterator.hasNext()) {
             City city = cityIterator.next();
             System.out.print(cities.contains(city) ? "+" : "-");
@@ -180,6 +183,7 @@ public abstract class SuperAdminViewHistoryMenuContent {
             cityMap.put(cityName, city);
         }
 
+        // Constant time below this point
         System.out.println("Enter a city name to change its state:");
         while (userInput.equals("\n")) {
             userInput = scanner.nextLine();
@@ -210,6 +214,7 @@ public abstract class SuperAdminViewHistoryMenuContent {
 
         System.out.println("Current bridges in chosen cities: (+: Included, -: Excluded)");
 
+        // Theta(n) where n is the total number of every bridge
         Iterator<City> cityIterator = MainSystem.getCityIterator();
         while (cityIterator.hasNext()) {
             City city = cityIterator.next();
@@ -225,6 +230,7 @@ public abstract class SuperAdminViewHistoryMenuContent {
             }
         }
 
+        // Constant time below this point
         System.out.println("Enter the index of the bridge to change its state:");
         userInput = scanner.nextInt();
 

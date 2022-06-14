@@ -64,6 +64,18 @@ public class City {
         bridges.add(bridge);
     }
 
+    public boolean containsBridge(String bridgeName) {
+        return bridges.contains(new Bridge(bridgeName));
+    }
+
+    public boolean removeBridge(String bridgeName) {
+        return removeBridge(new Bridge(bridgeName));
+    }
+
+    public boolean removeBridge(Bridge bridge) {
+        return bridges.remove(bridge);
+    }
+
     /**
      * A method that shows all bridges
      */
