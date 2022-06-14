@@ -180,4 +180,29 @@ public class User extends Person implements IUser {
         return vehicles;
     }
 
+    public void getAllVehicles(){
+        if(vehicles.size() != 0){
+            for (Plate vehicle : vehicles) System.out.println( vehicles.get(new Plate(vehicle.getPlate())).getPlate() + "  " + vehicles.get(new Plate(vehicle.getPlate())).getVehicleType() );
+
+        }
+        else{
+            System.out.println("There is no vehicle here. Let's add some.\n");
+        }
+
+    }
+
+    public void getAllPenalties(){
+        if(vehicles.size() != 0){
+            for (Plate vehicle : vehicles){
+                System.out.println( vehicles.get(new Plate(vehicle.getPlate())).getPlate() + "  " + vehicles.get(new Plate(vehicle.getPlate())).getVehicleType() );
+                vehicles.get(new Plate(vehicle.getPlate())).getPenalties();
+            }
+        }
+        else{
+            System.out.println("There is no vehicle here. Let's add some.\n");
+        }
+
+    }
+
+
 }
