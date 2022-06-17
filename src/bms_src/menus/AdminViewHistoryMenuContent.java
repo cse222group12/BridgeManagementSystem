@@ -25,20 +25,12 @@ public abstract class AdminViewHistoryMenuContent {
 
     private static final String[] optionHeaders = new String[]{
             "View Pass History",
-            "View activity of last 24 hours",
-            "View activity of last 7 days",
             "View total revenue",
-            "Enter date interval",
-            "Enter vehicle type",
     };
 
     private static final Runnable[] optionRunnables = new Runnable[]{
             AdminViewHistoryMenuContent::passHistory,
-            AdminViewHistoryMenuContent::printLast24h,
-            AdminViewHistoryMenuContent::printLast7d,
             AdminViewHistoryMenuContent::viewRevenue,
-            AdminViewHistoryMenuContent::printSpecified,
-            AdminViewHistoryMenuContent::updateValidVehicleTypes,
     };
 
     public static final Pair<String, Runnable>[] options = Pair.of(optionHeaders, optionRunnables);

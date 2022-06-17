@@ -12,7 +12,6 @@ public class AdminViewStaffMenuContent {
 
     private static final String[] optionHeaders = new String[]{
             "List",
-            "Search",
             "Update Staff",
             "Add Staff",
             "Remove Staff",
@@ -20,11 +19,9 @@ public class AdminViewStaffMenuContent {
 
     private static final Runnable[] optionRunnables = new Runnable[]{
             AdminViewStaffMenuContent::printStaffList,
-            AdminViewStaffMenuContent::printSearchList,
             AdminViewStaffMenuContent::updateStaff,
             AdminViewStaffMenuContent::addStaff,
             AdminViewStaffMenuContent::removeStaff,
-
     };
 
     public static final Pair<String, Runnable>[] options = Pair.of(optionHeaders, optionRunnables);
@@ -36,18 +33,6 @@ public class AdminViewStaffMenuContent {
         printStaffListOnCondition(staff -> true);
     }
 
-    private static void printSearchList() {
-        String userInput = "\n";
-        Scanner scanner = new Scanner(System.in);
-
-        while (userInput.equals("\n")) {
-            userInput = scanner.nextLine();
-        }
-
-        String finalUserInput = userInput;
-        printStaffListOnCondition(staff -> staff.getUsername().contains(finalUserInput));
-
-    }
 
     private static Staff getStaff(){
         printStaffList();
