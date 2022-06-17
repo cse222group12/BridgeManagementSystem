@@ -31,15 +31,15 @@ public class BMS extends DataBase implements IBMS {
         User user1 = new User("dumbuser","0000");
         user1.addToBalance(112.12);
 
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
         TollClerk tollClerk = new TollClerk("tcmahmut","4141");
         Officer officer = new Officer("jakeperalta", "3434");
         Admin admin = new Admin("a","a");
-=======
-        TollClerk tollClerk = new TollClerk("gisememur123","4141");
-        Officer officer = new Officer("mesutkomiser", "3434");
-        Admin admin = new Admin("admin","admin");
->>>>>>> Stashed changes
+//=======
+//        TollClerk tollClerk = new TollClerk("gisememur123","4141");
+//        Officer officer = new Officer("mesutkomiser", "3434");
+//        Admin admin = new Admin("admin","admin");
+//>>>>>>> Stashed changes
 
         user1.addVehicle(new Vehicle(new Plate("16BYGT34"), "dumbuser", IVehicle.Type.Automobile));
         user1.addVehicle(new Vehicle(new Plate("16BYGT35"), "dumbuser", IVehicle.Type.Truck));
