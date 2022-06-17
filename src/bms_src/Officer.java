@@ -12,6 +12,10 @@ public class Officer extends Staff implements IOfficer {
         this.label = "officer";
     }
 
+    public Officer() {
+
+    }
+
 
     /**
      * Send penalty to a user which is actually guilty driver

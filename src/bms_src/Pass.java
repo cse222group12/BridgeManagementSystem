@@ -14,6 +14,11 @@ public class Pass implements IPass {
         this.vehicle = vehicle;
     }
 
+    public Pass(Vehicle vehicle,Date date){
+        checkInTime = date;
+        this.vehicle = vehicle;
+    }
+
     public void setCheckOut(){
         checkOutTime = new Date();
     }

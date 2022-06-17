@@ -31,9 +31,15 @@ public class BMS extends DataBase implements IBMS {
         User user1 = new User("dumbuser","0000");
         user1.addToBalance(112.12);
 
+<<<<<<< Updated upstream
         TollClerk tollClerk = new TollClerk("tcmahmut","4141");
         Officer officer = new Officer("jakeperalta", "3434");
         Admin admin = new Admin("a","a");
+=======
+        TollClerk tollClerk = new TollClerk("gisememur123","4141");
+        Officer officer = new Officer("mesutkomiser", "3434");
+        Admin admin = new Admin("admin","admin");
+>>>>>>> Stashed changes
 
         user1.addVehicle(new Vehicle(new Plate("16BYGT34"), "dumbuser", IVehicle.Type.Automobile));
         user1.addVehicle(new Vehicle(new Plate("16BYGT35"), "dumbuser", IVehicle.Type.Truck));
@@ -57,10 +63,40 @@ public class BMS extends DataBase implements IBMS {
         Bridge fsm = new Bridge("FSM", 1000);
         Bridge yss = new Bridge("YSS", 3000);
         Istanbul.addBridge(fsm);
+
         Istanbul.addBridge(yss);
         admin.setCity_name("Istanbul");
         Istanbul.setAdmin(admin);
         cities.addNode(Istanbul);
+        Vehicle v1 = new Vehicle(new Plate("32vv321"),
+                "okutan", IVehicle.Type.Truck);
+        Vehicle v2 = new Vehicle(new Plate("32vv321"),
+                "okutan", IVehicle.Type.Minibus);
+        Vehicle v3 = new Vehicle(new Plate("32vv321"),
+                "okutan", IVehicle.Type.Motorcycle);
+        Vehicle v4 = new Vehicle(new Plate("32vv321"),
+                "okutan", IVehicle.Type.Automobile);
+        Vehicle v5 = new Vehicle(new Plate("32vv321"),
+                "okutan", IVehicle.Type.Motorcycle);
+        Date d1 = new Date(2021,10,11);
+        Date d2 = new Date(2021,10,12);
+        Date d3 = new Date(2021,10,13);
+        Date d4 = new Date(2021,10,14);
+        Date d5 = new Date(2021,10,15);
+        Pass p1 = new Pass(v1,d1);
+        Pass p2 = new Pass(v2,d2);
+        Pass p3 = new Pass(v3,d3);
+        Pass p4 = new Pass(v4,d4);
+        Pass p5 = new Pass(v5,d5);
+
+        fsm.addPass(p1);
+        fsm.addPass(p2);
+        fsm.addPass(p3);
+        yss.addPass(p4);
+        yss.addPass(p5);
+
+        fsm.setPrice(75.6);
+        yss.setPrice(121.32);
         //
 
 
@@ -160,12 +196,12 @@ public class BMS extends DataBase implements IBMS {
 
     /**
      * A method that get person from db
-     * @param id person`s id
+     * @param username person`s id
      * @return Person if exist
      *              else return null
      */
-    public static Person getPerson(String id){
-        return persons.get(id);
+    public static Person getPerson(String username){
+        return persons.get(username);
     }
 
 }
