@@ -77,6 +77,7 @@ public abstract class SuperAdminViewStaffMenuContent {
         String userInput = "\n";
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Enter name of the staff:");
         while (userInput.equals("\n")) {
             userInput = scanner.nextLine();
         }
@@ -278,7 +279,7 @@ public abstract class SuperAdminViewStaffMenuContent {
 
         Map<String, Staff.Type> typeNames = new HashMap<>();
 
-        System.out.println("Current vehicle types: (+: Included, -: Excluded)");
+        System.out.println("Current staff types: (+: Included, -: Excluded)");
 
         for (Staff.Type type : Staff.Type.values()) {
             System.out.print(staffTypes.contains(type.getStaffClass()) ? "+" : "-");
@@ -287,7 +288,7 @@ public abstract class SuperAdminViewStaffMenuContent {
             typeNames.put(typeName, type);
         }
 
-        System.out.println("Enter a vehicle type to change its state:");
+        System.out.println("Enter a staff type to change its state:");
         while (userInput.equals("\n")) {
             userInput = scanner.nextLine();
         }
@@ -298,15 +299,15 @@ public abstract class SuperAdminViewStaffMenuContent {
 
             if (staffTypes.contains(staffClass)) {
                 staffTypes.remove(staffClass);
-                System.out.println("Successfully removed from the selected vehicle types.");
+                System.out.println("Successfully removed from the selected staff types.");
             }
             else {
                 staffTypes.add(staffClass);
-                System.out.println("Successfully added to the selected vehicle types.");
+                System.out.println("Successfully added to the selected staff types.");
             }
         }
         else {
-            System.out.println("No such vehicle type exists.");
+            System.out.println("No such staff type exists.");
         }
     }
 }

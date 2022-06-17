@@ -27,7 +27,7 @@ public class BMS extends DataBase implements IBMS {
         cities = new JGraph<>();
         currentUser = null;
 
-        SuperAdmin superAdmin = new SuperAdmin("presidentobama", "991");
+        SuperAdmin superAdmin = new SuperAdmin("SuperAdmin", "securePassword");
         User user1 = new User("dumbuser","0000");
         user1.addToBalance(112.12);
 
@@ -74,7 +74,7 @@ public class BMS extends DataBase implements IBMS {
 
         IVehicle.Type[] vehicleTypes = IVehicle.Type.values();
         Pass[] passes = new Pass[20];
-        Arrays.setAll(passes, (i) -> new Pass(new Vehicle(new Plate("GP" + i), "", vehicleTypes[i % vehicleTypes.length])));
+        Arrays.setAll(passes, (i) -> new Pass(new Vehicle(new Plate("GP" + i % 3), "", vehicleTypes[i % vehicleTypes.length])));
 
         int i = 0;
         for (Pass pass : passes) {

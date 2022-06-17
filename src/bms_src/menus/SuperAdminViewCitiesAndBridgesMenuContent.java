@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-public class SuperAdminViewCitiesAndBridgesMenuContent {
+public abstract class SuperAdminViewCitiesAndBridgesMenuContent {
     private static final String[] optionHeader = {
             "List Cities",
             "Add City",
@@ -127,7 +127,6 @@ public class SuperAdminViewCitiesAndBridgesMenuContent {
             return;
         }
 
-        System.out.println("Enter the name of the bridge:");
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter the index of the bridge you want to remove:");

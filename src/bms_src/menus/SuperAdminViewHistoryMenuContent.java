@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAmount;
 import java.util.*;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 public abstract class SuperAdminViewHistoryMenuContent {
 
@@ -20,6 +22,7 @@ public abstract class SuperAdminViewHistoryMenuContent {
     private static final Set<Bridge> bridges = new HashSet<>();
 
     private static final String[] optionHeaders = new String[]{
+            "Search vehicle history",
             "View activity of last 24 hours",
             "View activity of last 7 days",
             "View activity of last 30 days",
@@ -30,6 +33,7 @@ public abstract class SuperAdminViewHistoryMenuContent {
     };
 
     private static final Runnable[] optionRunnables = new Runnable[]{
+            SuperAdminViewHistoryMenuContent::searchVehicle,
             SuperAdminViewHistoryMenuContent::printLast24h,
             SuperAdminViewHistoryMenuContent::printLast7d,
             SuperAdminViewHistoryMenuContent::printLast30d,
@@ -40,6 +44,19 @@ public abstract class SuperAdminViewHistoryMenuContent {
     };
 
     public static final Pair<String, Runnable>[] options = Pair.of(optionHeaders, optionRunnables);
+
+    private static void searchVehicle() {
+        String userInput = "\n";
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the plate of the vehicle:");
+        while (userInput.equals("\n")) {
+            userInput = scanner.nextLine();
+        }
+
+        String finalUserInput = userInput;
+        printActivity(new Date(Integer.MIN_VALUE), pass -> pass.getVehicle().getPlate().getPlate().equals(finalUserInput));
+    }
 
     private static void printLast24h() {
         // Quite possibly can be better.
@@ -55,11 +72,20 @@ public abstract class SuperAdminViewHistoryMenuContent {
     }
 
     private static void printActivity(Date since) {
-    printActivity(since,new Date());
+        printActivity(since, (pass) -> true);
+    }
+
+    private static void printActivity(Date since, Function<Pass, Boolean> passCondition) {
+        printActivity(since, new Date(), passCondition);
+    }
+
+
+    private static void printActivity(Date start, Date end) {
+        printActivity(start, end, (pass) -> true);
     }
 
     // Theta(n) where n is the total number of activity
-    private static void printActivity(Date start, Date end) {
+    private static void printActivity(Date start, Date end, Function<Pass, Boolean> passCondition) {
         Iterator<City> cityIterator = MainSystem.getCityIterator();
         while (cityIterator.hasNext()) {
             City city = cityIterator.next();
@@ -74,9 +100,10 @@ public abstract class SuperAdminViewHistoryMenuContent {
                         for (Date passDate : passHistory) {
                             Pass pass = passHistory.get(passDate);
 
-                            if (pass == null) continue;
+                            if (pass == null || !passCondition.apply(pass)) continue;
 
-                            IVehicle.Type vehicleType = pass.getVehicle().getVehicleType();
+                            Vehicle vehicle = pass.getVehicle();
+                            IVehicle.Type vehicleType = vehicle.getVehicleType();
 
                             if (vehicleTypes.isEmpty() || vehicleTypes.contains(vehicleType)) {
                                 if (start.compareTo(passDate) < 0 && end.compareTo(passDate) > 0) {
