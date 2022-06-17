@@ -24,19 +24,13 @@ public abstract class AdminViewHistoryMenuContent {
 
 
     private static final String[] optionHeaders = new String[]{
-            "View activity of last 24 hours",
-            "View activity of last 7 days",
-            "View activity of last 30 days",
-            "Enter date interval",
-            "Enter vehicle type",
+            "View Pass History",
+            "View total revenue",
     };
 
     private static final Runnable[] optionRunnables = new Runnable[]{
-            AdminViewHistoryMenuContent::printLast24h,
-            AdminViewHistoryMenuContent::printLast7d,
-            AdminViewHistoryMenuContent::printLast30d,
-            AdminViewHistoryMenuContent::printSpecified,
-            AdminViewHistoryMenuContent::updateValidVehicleTypes,
+            AdminViewHistoryMenuContent::passHistory,
+            AdminViewHistoryMenuContent::viewRevenue,
     };
 
     public static final Pair<String, Runnable>[] options = Pair.of(optionHeaders, optionRunnables);
@@ -46,12 +40,26 @@ public abstract class AdminViewHistoryMenuContent {
         printActivity((Date.from(Instant.now().minus(1, ChronoUnit.DAYS))));
     }
 
+    private static void passHistory() {
+        admin = (Admin) BMS.currentUser;
+        City city = BMS.getCity(admin.getCity_name());
+        for (Bridge bridge : city.getBridges()) {
+            System.out.println(bridge);
+            System.out.println("Total revenue: " + bridge.getPassHistory());
+        }
+    }
+
     private static void printLast7d() {
         printActivity((Date.from(Instant.now().minus(7, ChronoUnit.DAYS))));
     }
 
-    private static void printLast30d() {
-        printActivity((Date.from(Instant.now().minus(30, ChronoUnit.DAYS))));
+    private static void viewRevenue() {
+        admin = (Admin) BMS.currentUser;
+        City city = BMS.getCity(admin.getCity_name());
+        for (Bridge bridge : city.getBridges()) {
+            System.out.print(bridge.getName()+ " bridge -> " );
+            System.out.println(bridge.getRevenue()+ " $");
+        }
     }
 
     private static void printActivity(Date since) {

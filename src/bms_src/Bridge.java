@@ -14,6 +14,7 @@ public class Bridge {
 
     private double bridgeLength;
     private double price = 100;
+
 //>>>>>>> Stashed changes
 
     // NOTE:
@@ -30,6 +31,10 @@ public class Bridge {
 
     // @see SuperAdminViewHistoryMenuContent::printActivity
 //    private SkipList<Date, Pass> passHistory;
+
+    public double getRevenue(){
+        return passHistory.size()*this.price;
+    }
 
     public Bridge(String name) {
         this.name = name;

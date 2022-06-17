@@ -25,6 +25,10 @@ public abstract class Person implements Comparable<Person> {
         this.username = username;
     }
 
+    public Person() {
+
+    }
+
     /**
      * A method that compares persons by name
      * @param o other person

@@ -11,6 +11,10 @@ public class TollClerk extends Staff implements ITollClerk {
         this.label = "toll_clerk";
     }
 
+    public TollClerk() {
+        super();
+    }
+
     /**
      * Checks if the passerby passenger from bridge is in the blacklist or there is not enough money on user's account so user can't check in.
      *

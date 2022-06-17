@@ -2,10 +2,26 @@ package bms_src;
 
 import bms_interface.IStaff;
 
+import java.util.Scanner;
+
 public abstract class Staff extends Person implements IStaff {
 
     public Staff(String staff_name, String id_number) {
         super(staff_name, id_number);
+    }
+
+    public Staff() {
+        super();
+    }
+
+    public void fillInfo(){
+        Scanner sc= new Scanner(System.in);  //System.in is a standard input stream
+        System.out.println("Input username: ");
+        String str= sc.next();   //reads string before the space
+        this.setUsername(str);
+        System.out.println("Input password: ");
+        str=sc.next();
+        this.setPassword(str);
     }
 
     /**
