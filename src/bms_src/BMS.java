@@ -27,14 +27,19 @@ public class BMS extends DataBase implements IBMS {
         cities = new JGraph<>();
         currentUser = null;
 
-        SuperAdmin superAdmin = new SuperAdmin("SuperAdmin", "securePassword");
-        User user1 = new User("dumbuser","0000");
+//<<<<<<< Updated upstream
+//        SuperAdmin superAdmin = new SuperAdmin("SuperAdmin", "securePassword");
+//        User user1 = new User("dumbuser","0000");
+//=======
+        SuperAdmin superAdmin = new SuperAdmin("superadmin", "1111");
+        User user1 = new User("user","0000");
+//>>>>>>> Stashed changes
         user1.addToBalance(112.12);
 
 //<<<<<<< Updated upstream
         TollClerk tollClerk = new TollClerk("tcmahmut","4141");
         Officer officer = new Officer("jakeperalta", "3434");
-        Admin admin = new Admin("a","a");
+        Admin admin = new Admin("admin","admin");
 //=======
 //        TollClerk tollClerk = new TollClerk("gisememur123","4141");
 //        Officer officer = new Officer("mesutkomiser", "3434");
@@ -59,15 +64,15 @@ public class BMS extends DataBase implements IBMS {
         officer.sendPenalty(new Penalty("dumbuser", "16BYGT35"));
 
         //
-        City Istanbul = new City("Istanbul");
-        Bridge fsm = new Bridge("FSM", 1000);
+        City istanbul = new City("Istanbul");
+        Bridge fsm = new Bridge("Kopru1", 1000);
         Bridge yss = new Bridge("YSS", 3000);
-        Istanbul.addBridge(fsm);
+        istanbul.addBridge(fsm);
 
-        Istanbul.addBridge(yss);
+        istanbul.addBridge(yss);
         admin.setCity_name("Istanbul");
-        Istanbul.setAdmin(admin);
-        cities.addNode(Istanbul);
+        istanbul.setAdmin(admin);
+        cities.addNode(istanbul);
         Vehicle v1 = new Vehicle(new Plate("32vv321"),
                 "okutan", IVehicle.Type.Truck);
         Vehicle v2 = new Vehicle(new Plate("32vv321"),
@@ -105,7 +110,6 @@ public class BMS extends DataBase implements IBMS {
 
         MainSystem.addPerson(new User("Kelek", "1453"));
 
-        City istanbul = new City("Istanbul");
         Bridge fsmBridge = new Bridge("Fatih Sultan Mehmet Bridge");
 
         IVehicle.Type[] vehicleTypes = IVehicle.Type.values();
